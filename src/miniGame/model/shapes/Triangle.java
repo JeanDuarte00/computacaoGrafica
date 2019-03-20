@@ -1,8 +1,9 @@
-package miniGame.model;
+package miniGame.model.shapes;
 
 import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;
+import miniGame.model.configuration.Position;
 
 public class Triangle implements GLEventListener {
     Position p1;
@@ -23,24 +24,12 @@ public class Triangle implements GLEventListener {
     @Override
     public void display(GLAutoDrawable glAutoDrawable) {
         GL2 gl = glAutoDrawable.getGL().getGL2();
-        gl.glBegin (GL2.GL_LINES);
+        gl.glBegin(GL2.GL_TRIANGLES);
 
-        //drawing the base
-        gl.glBegin (GL2.GL_LINES);
-        gl.glVertex2d((-1)*p3.getX(), (-1)*p3.getY());
-        gl.glVertex2d(p1.getX(), (-1)*p1.getY());
-        gl.glEnd();
+        gl.glVertex3d(p1.getX(), p1.getY(),0);
+        gl.glVertex3d(-1*p2.getX(), -1*p2.getY(), 0);
+        gl.glVertex3d(p3.getX(),-1*p3.getY(),0);
 
-        //drawing the right edge
-        gl.glBegin (GL2.GL_LINES);
-        gl.glVertex2d(p2.getX(), p2.getY());
-        gl.glVertex2d((-1)*p3.getX(), (-1)*p3.getY());
-        gl.glEnd();
-
-        //drawing the left edge
-        gl.glBegin (GL2.GL_LINES);
-        gl.glVertex2d( p2.getX(), p2.getY());
-        gl.glVertex2d( p1.getX(), (-1)*p1.getY());
         gl.glEnd();
         gl.glFlush();
     }

@@ -1,40 +1,39 @@
-package miniGame.model;
+package miniGame.model.shapes;
 
 import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;
-import javafx.geometry.Pos;
+import miniGame.model.configuration.Position;
 
-public class Square implements GLEventListener {
+public class Quadrilater implements GLEventListener {
 
     Position p1;
     Position p2;
     Position p3;
     Position p4;
-    Position p5;
 
-    public Square ( Position p1, Position p2, Position p3, Position p4, Position p5) {
+
+    public Quadrilater ( Position p1, Position p2, Position p3, Position p4) {
         this.p1 = p1;
         this.p2 = p2;
         this.p3 = p3;
         this.p4 = p4;
-        this.p5 = p5;
     }
 
     @Override
     public void display(GLAutoDrawable drawable) {
         final GL2 gl = drawable.getGL().getGL2();
+
         gl.glBegin(GL2.GL_QUADS);
 
-
-
-        gl.glVertex2d( p1.getX(), p1.getY());
-        gl.glVertex2d((-1)*p2.getX(),p2.getY());
-        gl.glVertex2d( p4.getX(),(-1)*p4.getY());
-        gl.glVertex2d((-1)*p3.getX(),(-1)*p3.getY());
+        gl.glVertex3d(-1*p1.getX(), -1*p1.getY(),  0);
+        gl.glVertex3d( p2.getX(), -1*p2.getY(),  0);
+        gl.glVertex3d( p3.getX(),  p3.getY(),  0);
+        gl.glVertex3d(-1*p4.getX(),  p4.getY(),  0);
 
         gl.glEnd();
         gl.glFlush();
+
     }
 
     @Override

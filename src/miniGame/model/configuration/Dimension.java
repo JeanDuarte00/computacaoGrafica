@@ -1,4 +1,4 @@
-package miniGame.model;
+package miniGame.model.configuration;
 
 public class Dimension {
 
