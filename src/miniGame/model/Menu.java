@@ -2,14 +2,15 @@ package miniGame.model;
 
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;
+import miniGame.model.shapes.Quadrilater;
+import miniGame.painter.QuadrilaterPainter;
 
 public class Menu implements GLEventListener {
 
 
+
     @Override
     public void display(GLAutoDrawable drawable) {
-
-
 
     }
 
