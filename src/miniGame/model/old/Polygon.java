@@ -1,4 +1,4 @@
-package miniGame.model.shapes;
+package miniGame.model.old;
 
 import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GLAutoDrawable;

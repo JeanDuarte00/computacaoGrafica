@@ -1,16 +1,21 @@
 package miniGame.model.shapes;
 
-import com.jogamp.opengl.GL;
 import com.jogamp.opengl.GL2;
 import miniGame.model.configuration.Axis;
 import miniGame.model.configuration.ColorPainter;
+
 
 public abstract class Shape implements Comparable<Shape> {
 
     protected Integer id;
     protected ColorPainter color;
     protected Axis axis;
+    protected int nLados;
 
+
+    public int getLado () {
+        return this.nLados;
+    }
 
     public Integer getId() {
         return id;
@@ -36,10 +41,10 @@ public abstract class Shape implements Comparable<Shape> {
         this.color = color;
     }
 
+
     @Override
     public int compareTo(Shape shape) {
         return this.getId().compareTo( shape.getId() );
     }
-
 
 }

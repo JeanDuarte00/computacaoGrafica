@@ -10,12 +10,11 @@ import miniGame.controller.Renderer;
 import miniGame.model.configuration.Axis;
 import miniGame.model.configuration.ColorPainter;
 import miniGame.model.configuration.Dimension;
-import miniGame.model.configuration.Position;
-import miniGame.model.shapes.Polygon;
-import miniGame.model.shapes.Quadrilater;
-import miniGame.model.shapes.Rhombus;
-import miniGame.model.shapes.Triangle;
-import miniGame.painter.QuadrilaterPainter;
+import miniGame.model.old.Quadrilater;
+import miniGame.model.old.QuadrilaterPainter;
+import miniGame.model.shapes.Shape;
+import miniGame.model.shapes.Square;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -32,18 +31,52 @@ public class Main extends Application {
     @Override
     public void start(Stage stage ) throws Exception{
 
-        // all configuration and setting it's propreties
-        Dimension sceneDimension = new Dimension(600, 600);
+        // all configuration
+        Dimension sceneDimension = new Dimension(800, 800);
         GLProfile profile = GLProfile.get(GLProfile.GL2);
         GLCapabilities capabilities = new GLCapabilities(profile);
-        GLCanvas glcanvas = new GLCanvas(capabilities);
-        glcanvas.setSize(sceneDimension.getWidth(), sceneDimension.getHeight());
-        JFrame frame = new JFrame("Mini Game - Catch de Shape");
-        frame.getContentPane().add(glcanvas);
-        frame.setSize(frame.getContentPane().getPreferredSize());
-        frame.setVisible(true);
-        glcanvas.setFocusable(true);
-        frame.setLocation(new Point(10,10));
+
+        GLCanvas menuCanvas = new GLCanvas(capabilities);
+        GLCanvas gameCanvas = new GLCanvas(capabilities);
+        menuCanvas.setSize( sceneDimension.getWidth(), sceneDimension.getHeight() );
+        gameCanvas.setSize( sceneDimension.getWidth(), sceneDimension.getHeight() );
+
+        JFrame menuFrame = new JFrame("Mini Game - Menu");
+        JFrame gameFrame = new JFrame("Mini Game - ClickFall");
+
+        menuFrame.getContentPane().add(menuCanvas);
+        gameFrame.getContentPane().add(gameCanvas);
+
+        menuFrame.setSize(menuFrame.getContentPane().getPreferredSize());
+        gameFrame.setSize(menuFrame.getContentPane().getPreferredSize());
+
+        menuFrame.setVisible(true);
+        gameFrame.setVisible(false);
+
+        menuCanvas.setFocusable(true);
+        gameCanvas.setFocusable(false);
+
+        menuFrame.setLocation(new Point(10,10));
+        gameFrame.setLocation(new Point(20,20));
+
+        Quadrilater square = new QuadrilaterPainter().rectangle(0.2, 0.1);
+        square.setColor( new ColorPainter(1,0,0) );
+        square.setAxis( new Axis(0,0,0) );
+
+
+
+        Shape quadrado = new Square();
+        quadrado.setColor( new ColorPainter(1,0,0) );
+        quadrado.setAxis( new Axis(0,0,0) );
+
+
+        this.renderer.add( square );
+        this.renderer.add( quadrado );
+        final FPSAnimator animator = new FPSAnimator(menuCanvas, 400,true);
+        animator.start();
+        menuCanvas.addGLEventListener( renderer );
+
+/*
 
         Triangle triangle = new Triangle(new Position(0.3,0.2), new Position(0.3, 0.23), new Position(0.6,0.1));
         Rhombus rhombus = new Rhombus();
@@ -64,7 +97,7 @@ public class Main extends Application {
         square.setColor(new ColorPainter(1,0,0));
         square.setAxis(new Axis(0,0,0));
         // put it to be executed
-        btnPlay.setAxis(new Axis(0,0.3,0.0));
+        btnPlay.setAxis(new Axis(0,0.0,0.0));
         btnPlay.setColor(new ColorPainter(1,1,0));
         //glcanvas.addGLEventListener();
 
@@ -80,10 +113,9 @@ public class Main extends Application {
         this.renderer.add(btnPlay);
         this.renderer.add(square);
 
-        glcanvas.addGLEventListener( renderer );
+        menuCanvas.addGLEventListener( renderer );
+*/
 
-        final FPSAnimator animator = new FPSAnimator(glcanvas, 400,true);
-        animator.start();
     }
 
 }

@@ -1,14 +1,15 @@
-package miniGame.painter;
+package miniGame.model.old;
 
 import miniGame.model.configuration.Position;
-import miniGame.model.shapes.Quadrilater;
+import miniGame.model.old.Quadrilater;
 
 public class QuadrilaterPainter {
 
 
     private static int id;
 
-    public Quadrilater square (double lengthSize) {
+
+    /*public Quadrilater square (double lengthSize) {
         Quadrilater shape = new Quadrilater(
                 id++,
                 new Position(lengthSize, lengthSize),
@@ -18,7 +19,7 @@ public class QuadrilaterPainter {
 
         );
         return shape;
-    }
+    }*/
 
     public Quadrilater rectangle (double leftRight, double topBottom) {
         Quadrilater shape = new Quadrilater(

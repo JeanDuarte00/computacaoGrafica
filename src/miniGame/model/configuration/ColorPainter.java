@@ -11,7 +11,7 @@ public class ColorPainter {
         return red;
     }
 
-    public double getGree() {
+    public double getGreen() {
         return gree;
     }
 

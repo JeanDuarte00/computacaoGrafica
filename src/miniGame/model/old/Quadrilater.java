@@ -1,8 +1,8 @@
-package miniGame.model.shapes;
+package miniGame.model.old;
 
-import com.jogamp.opengl.GL;
 import com.jogamp.opengl.GL2;
 import miniGame.model.configuration.Position;
+import miniGame.model.shapes.Shape;
 
 
 public class Quadrilater extends Shape {
@@ -23,7 +23,7 @@ public class Quadrilater extends Shape {
     public void draw(GL2 gl) {
 
         gl.glTranslated(this.axis.getX(), this.axis.getY(), 0);
-        gl.glColor4d(this.color.getRed(),this.color.getGree(),this.color.getBlue(), 1);
+        gl.glColor4d(this.color.getRed(),this.color.getGreen(),this.color.getBlue(), 1);
 
         gl.glBegin(GL2.GL_QUADS);
         gl.glVertex3d(-1*p1.getX(), -1*p1.getY(),  0);
