@@ -23,9 +23,16 @@ public class GameRenderer implements GLEventListener {
     private Colors color;
     private  int correctPosition;
     List<Shape> shapes;
-    private static int score = 10;
+    private static int score = 0;
     private static int life = 3;
     private static List<Colors> colorsList= Arrays.asList(Colors.VERMELHO,Colors.AMARELO,Colors.AZUL,Colors.VERDE);
+    public static int getLife() {
+        return life;
+    }
+
+    public static int getScore() {
+        return score;
+    }
 
     public int getResultPosition() {
         return correctPosition;

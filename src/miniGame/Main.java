@@ -10,24 +10,26 @@ import javafx.stage.Stage;
 import miniGame.controller.GameRenderer;
 import miniGame.controller.MenuRenderer;
 import miniGame.controller.RendererScore;
+import miniGame.model.score.Score;
+import miniGame.model.score.ScoreData;
 import miniGame.model.utils.*;
 import miniGame.model.utils.Dimension;
+import miniGame.model.utils.WindowEvent;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
+import java.awt.event.*;
 
 
 public class Main extends Application {
 
     private int choosen =  (int)(Math.random() * 4) + 1;
     private static int objects[] = new int[4];
-
+    private static String playerName;
     private MenuRenderer menuRender = new MenuRenderer();
     private RendererScore scoreRender = new RendererScore();
     private GameRenderer gameRender = new GameRenderer();
-
+    private ScoreData scoreData = new ScoreData();
     private static Player player;
 
     public static void main(String[] args) {
@@ -245,7 +247,6 @@ public class Main extends Application {
                 if(e.getX()>86 && e.getX()<235) {
                     if (e.getY()>429 && e.getY()<561) {
                         System.out.println("OPTION1:");
-
                        selected = 0;
                     }
                 }
@@ -253,7 +254,6 @@ public class Main extends Application {
                 if(e.getX()>245 && e.getX()<491) {
                     if (e.getY()>429 && e.getY()<561) {
                         System.out.println("OPTION2:");
-
                         selected = 1;
                     }
                 }
@@ -261,7 +261,6 @@ public class Main extends Application {
                 if(e.getX()>405 && e.getX()<554) {
                     if (e.getY()>429 && e.getY()<561) {
                         System.out.println("OPTION3:");
-
                         selected = 2;
                     }
                 }
@@ -269,7 +268,6 @@ public class Main extends Application {
                 if(e.getX()>565 && e.getX()<714) {
                     if (e.getY()>429 && e.getY()<561) {
                         System.out.println("OPTION4:");
-
                         selected = 3;
                     }
                 }
@@ -283,6 +281,40 @@ public class Main extends Application {
                     gameRender.downlife();
                     new Effects("C://repositorios/cg/computacaoGrafica/src/miniGame/music/loseScore.wav");
                     gameRender.createListAndPosition();
+                }
+                if(GameRenderer.getLife()==-1){
+
+
+                    JFrame input = new JFrame("Entre seu nome para salvar!");
+                    input.setSize(250, 100);
+                    input.setLocation(new Point(20, 20));
+                    input.getContentPane().setLayout(new FlowLayout());
+                    JTextField extfield = new JTextField("",30);
+
+                    JButton btn=new JButton("Salvar");
+                    btn.setBounds(100,100,140, 40);
+                    btn.addActionListener(new ActionListener() {
+
+                        @Override
+                        public void actionPerformed(ActionEvent actionEvent) {
+                            playerName = extfield.getText();
+                            System.out.println(playerName);
+                            extfield.setText("Enviado com sucesso!");
+                            scoreData.saveScore(new Score(playerName, GameRenderer.getScore()));
+                            System.exit(0);
+                        }
+
+
+                    });
+                    input.getContentPane().add(extfield);
+                    input.getContentPane().add(btn);
+
+                    input.pack();
+                    input.setVisible(true);
+
+
+                    // System.exit(0);
+
                 }
 
             }

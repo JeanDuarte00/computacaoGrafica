@@ -100,7 +100,7 @@ public class MenuRenderer implements GLEventListener {
             gl.glVertex2d(700+rotateX(frames,50,50), 100+rotateY(frames,50,50));
             gl.glVertex2d(700+rotateX(frames,-50,50),100+rotateY(frames,-50,50));
             // Done Drawing The Quad
-            gl.glFinish();
+            gl.glEnd();
         }else{
             gl.glBegin(GL2.GL_QUADS);
             gl.glColor3f(1.0f, 1.0f, 1.0f);    // Set the current drawing color to light blue

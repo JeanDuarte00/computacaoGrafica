@@ -38,7 +38,7 @@ public class ScoreData {
             e.printStackTrace();
         }
     }
-    public boolean newRecord(float score)  {
+    public boolean newRecord(int score)  {
         Gson gson;
         gson = new Gson();
         String jsonFile = "";
