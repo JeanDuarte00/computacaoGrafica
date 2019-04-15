@@ -1,15 +1,18 @@
 package miniGame.controller;
 
+import com.jogamp.opengl.GL;
 import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;
 import com.jogamp.opengl.glu.GLU;
 import com.jogamp.opengl.util.awt.TextRenderer;
+import miniGame.model.enums.Colors;
 import miniGame.model.shapes.Shape;
 import miniGame.model.utils.Axis;
 
 
 import java.awt.*;
+import java.util.*;
 import java.lang.reflect.Array;
 import java.util.LinkedList;
 import java.util.List;
@@ -19,6 +22,9 @@ public class GameRenderer implements GLEventListener {
 
     List<Shape> shapes;
     private static int score = 10;
+    private int score;
+    private List<Colors> colorsList= Arrays.asList(Colors.VERMELHO,Colors.AMARELO,Colors.AZUL,Colors.VERDE);
+    private Random rand = new Random();
 
     public void upScore (int up) {
         this.score  = this.score + up ;
@@ -27,6 +33,7 @@ public class GameRenderer implements GLEventListener {
     public void downScore (int down) {
         this.score = this.score - down ;
     }
+
 
     public GameRenderer(){
         if(shapes == null)
@@ -68,10 +75,10 @@ public class GameRenderer implements GLEventListener {
         // field to display the current one
         gl.glBegin(GL2.GL_QUADS);
         gl.glColor3f(1.0f, 1.0f, 1.0f);    // Set the current drawing color to light blue
-        gl.glVertex2i(700-150,600-50);
-        gl.glVertex2i(700+0, 600-50);
-        gl.glVertex2i(700+0, 600+80);
-        gl.glVertex2i(700-150,600+80);
+        gl.glVertex2i(700-150,550);
+        gl.glVertex2i(700+0, 550);
+        gl.glVertex2i(700+0, 680);
+        gl.glVertex2i(700-150,680);
         gl.glLoadIdentity();
         gl.glEnd();
 
@@ -113,6 +120,39 @@ public class GameRenderer implements GLEventListener {
         gl.glLoadIdentity();
         gl.glEnd();
 
+
+
+
+        List<Integer> polygonSides = radom();
+        List<Integer> objectColor = ramdomicObject();
+        List<Integer> objectSides = ramdomicObject();
+
+        createPolygon(gl,colorsList.get(objectColor.get(0)), polygonSides.get(objectSides.get(0)), 620, 615);
+        gl.glLoadIdentity();
+        gl.glEnd();
+
+        createPolygon(gl, colorsList.get(objectColor.get(0)), polygonSides.get(0), 160,265);
+        gl.glLoadIdentity();
+        gl.glEnd();
+
+
+        createPolygon(gl, colorsList.get(objectColor.get(0)), polygonSides.get(1), 320,265);
+        gl.glLoadIdentity();
+        gl.glEnd();
+
+        createPolygon(gl, colorsList.get(objectColor.get(0)), polygonSides.get(2), 480, 265);
+        gl.glLoadIdentity();
+        gl.glEnd();
+
+
+        createPolygon(gl, colorsList.get(objectColor.get(0)), polygonSides.get(3) ,640 ,265);
+        gl.glLoadIdentity();
+        gl.glEnd();
+
+
+
+
+
     }
 
     @Override
@@ -139,4 +179,33 @@ public class GameRenderer implements GLEventListener {
         gl.glMatrixMode(GL2.GL_MODELVIEW);
         gl.glLoadIdentity();
     }
+
+    public void createPolygon(GL2 gl, Colors color, int sides, int x, int y){
+        gl.glBegin(GL2.GL_POLYGON);
+        gl.glColor3f(color.getR(),color.getG(),color.getB());
+        for(int i=0;i<sides;++i){
+            double angulo= (2*Math.PI*i/sides);
+            gl.glVertex2d(x+ 63*Math.cos(angulo),y+63*Math.sin(angulo));
+        }
+    }
+
+    private List<Integer> radom(){
+
+        List<Integer> values = Arrays.asList(3,4,5,6,7);
+        Collections.shuffle(values);
+        return values;
+    }
+    private List<Integer> ramdomicObject
+            (){
+
+        List<Integer> values = Arrays.asList(0,1,2,3);
+        Collections.shuffle(values);
+        return values;
+    }
+    private List<Colors> colorsRandom(){
+
+        Collections.shuffle(colorsList);
+        return colorsList;
+    }
+
 }

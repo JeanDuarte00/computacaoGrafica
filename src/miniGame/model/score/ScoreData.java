@@ -65,7 +65,7 @@ public class ScoreData {
         Gson gson = new Gson();
         String jsonFile = "";
         try {
-        File arquivo = new File("C:\\Users\\jean_\\IdeaProjects\\cg\\src\\miniGame\\scoreData\\score.txt");
+        File arquivo = new File("C://repositorios/cg/computacaoGrafica/src/miniGame/scoreData/score.txt");
         FileReader fr = new FileReader(arquivo);
         BufferedReader br = new BufferedReader(fr);
             while( br.ready() ){
