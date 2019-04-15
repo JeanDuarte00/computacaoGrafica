@@ -2,39 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/miniGame/model/old/classes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/miniGame/model/utils/CanvasEventer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/miniGame/model/utils/Messager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/miniGame/model/utils/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/miniGame/model/utils/TelaFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/miniGame/model/utils/WindowEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/miniGame/music/menu.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/miniGame/music/menuMusic.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/computacaoGrafica.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/gson-2.6.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/json-simple-1.1.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/miniGame/controller/Renderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/miniGame/controller/RendererScore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/miniGame/model/score/Score.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/miniGame/model/score/ScoreData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/miniGame/scoreData/score.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/cg/miniGame/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cg/miniGame/Main$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/cg/miniGame/Main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cg/miniGame/Main$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/cg/miniGame/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cg/miniGame/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cg/miniGame/controller/Renderer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cg/miniGame/model/configuration/Axis.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cg/miniGame/model/configuration/ColorPainter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cg/miniGame/model/configuration/Dimension.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cg/miniGame/model/configuration/Position.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cg/miniGame/model/old/Polygon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cg/miniGame/model/old/Polygon.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cg/miniGame/model/old/Quadrilater.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cg/miniGame/model/old/Quadrilater.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cg/miniGame/model/old/QuadrilaterPainter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cg/miniGame/model/old/QuadrilaterPainter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cg/miniGame/model/old/Triangle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cg/miniGame/model/old/Triangle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cg/miniGame/model/shapes/Shape.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cg/miniGame/model/shapes/Shape.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cg/miniGame/model/shapes/Square.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cg/miniGame/model/shapes/Square.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cg/miniGame/painter/ShapePainter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cg/miniGame/painter/ShapePainter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/cg/miniGame/controller/MenuRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cg/miniGame/controller/MenuRenderer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/miniGame/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/miniGame/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/miniGame/controller/Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/miniGame/controller/MenuRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/miniGame/model/configuration/Axis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/miniGame/model/utils/Axis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/miniGame/model/configuration/ColorPainter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/miniGame/model/utils/ColorPainter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/miniGame/model/configuration/Dimension.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/miniGame/model/utils/Dimension.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/miniGame/model/configuration/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/miniGame/model/utils/Position.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/miniGame/model/old/Polygon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/miniGame/model/old/Polygon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/miniGame/model/old/Quadrilater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/miniGame/model/old/Quadrilater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/miniGame/model/old/QuadrilaterPainter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/miniGame/model/old/QuadrilaterPainter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/miniGame/model/old/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/miniGame/model/old/Triangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/miniGame/model/shapes/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/miniGame/model/shapes/Shape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/miniGame/controller/MenuRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/miniGame/controller/MenuRenderer.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -102,15 +85,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/miniGame/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="136" column="50" selection-start-line="136" selection-start-column="50" selection-end-line="136" selection-end-column="50" />
+            <state relative-caret-position="984">
+              <caret line="250" lean-forward="true" selection-start-line="250" selection-end-line="250" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="class#1832:4014" />
-                <element signature="method#mouseMoved#0;class#1832:4014" />
-                <element signature="e#2131#2561#1" />
-                <element signature="e#2715#3111#1" />
-                <element signature="e#3266#3839#1" />
+                <element signature="class#1866:4048" />
+                <element signature="method#mouseMoved#0;class#1866:4048" />
+                <element signature="class#4091:5425" />
+                <element signature="class#5925:6422" />
               </folding>
             </state>
           </provider>
@@ -119,28 +101,36 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/miniGame/controller/MenuRenderer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="211" column="40" selection-start-line="211" selection-start-column="38" selection-end-line="211" selection-end-column="40" />
+            <state relative-caret-position="355">
+              <caret line="251" column="10" selection-start-line="251" selection-start-column="10" selection-end-line="251" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#670#671#0" expanded="true" />
                 <element signature="e#713#714#0" expanded="true" />
                 <element signature="method#init#0;class#MenuRenderer#0" />
-                <element signature="method#drawText#0;class#MenuRenderer#0" />
                 <element signature="method#display1#0;class#MenuRenderer#0" />
-                <element signature="e#11375#11376#0" expanded="true" />
-                <element signature="e#11435#11436#0" expanded="true" />
-                <element signature="e#11498#11499#0" expanded="true" />
-                <element signature="e#11558#11559#0" expanded="true" />
-                <element signature="e#11594#11595#0" expanded="true" />
-                <element signature="e#11624#11625#0" expanded="true" />
-                <element signature="e#11663#11664#0" expanded="true" />
-                <element signature="e#11694#11695#0" expanded="true" />
-                <element signature="e#11729#11730#0" expanded="true" />
-                <element signature="e#11758#11759#0" expanded="true" />
-                <element signature="e#11792#11793#0" expanded="true" />
-                <element signature="e#11822#11823#0" expanded="true" />
+                <element signature="e#12260#12261#0" expanded="true" />
+                <element signature="e#12320#12321#0" expanded="true" />
+                <element signature="e#12383#12384#0" expanded="true" />
+                <element signature="e#12443#12444#0" expanded="true" />
+                <element signature="e#12479#12480#0" expanded="true" />
+                <element signature="e#12509#12510#0" expanded="true" />
+                <element signature="e#12548#12549#0" expanded="true" />
+                <element signature="e#12579#12580#0" expanded="true" />
+                <element signature="e#12614#12615#0" expanded="true" />
+                <element signature="e#12643#12644#0" expanded="true" />
+                <element signature="e#12677#12678#0" expanded="true" />
+                <element signature="e#12707#12708#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/miniGame/model/score/ScoreData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="22">
+              <caret line="70" column="32" lean-forward="true" selection-start-line="70" selection-start-column="32" selection-end-line="70" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -161,6 +151,7 @@
       <find>reshape()</find>
       <find>Ort</find>
       <find>renderer</find>
+      <find>rende</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -205,7 +196,6 @@
         <option value="$PROJECT_DIR$/src/miniGame/model/shapes/Square.java" />
         <option value="$PROJECT_DIR$/src/miniGame/model/configuration/Axis.java" />
         <option value="$PROJECT_DIR$/src/miniGame/model/utils/Alert.java" />
-        <option value="$PROJECT_DIR$/src/miniGame/controller/Renderer.java" />
         <option value="$PROJECT_DIR$/src/miniGame/model/utils/Messager.java" />
         <option value="$PROJECT_DIR$/src/miniGame/model/old/classes" />
         <option value="$PROJECT_DIR$/src/miniGame/model/utils/Player.java" />
@@ -215,6 +205,11 @@
         <option value="$PROJECT_DIR$/src/miniGame/model/utils/TelaFrame.java" />
         <option value="$PROJECT_DIR$/src/miniGame/model/utils/WindowEvent.java" />
         <option value="$PROJECT_DIR$/src/miniGame/model/utils/CanvasEventer.java" />
+        <option value="$PROJECT_DIR$/src/miniGame/controller/Renderer.java" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/miniGame/MainScore.java" />
+        <option value="$PROJECT_DIR$/src/miniGame/model/score/ScoreData.java" />
+        <option value="$PROJECT_DIR$/src/miniGame/controller/RendererScore.java" />
         <option value="$PROJECT_DIR$/src/miniGame/controller/MenuRenderer.java" />
         <option value="$PROJECT_DIR$/src/miniGame/Main.java" />
       </list>
@@ -236,12 +231,18 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="cg" type="b2602c69:ProjectViewProjectNode" />
               <item name="cg" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cg" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cg" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cg" type="b2602c69:ProjectViewProjectNode" />
@@ -274,30 +275,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="miniGame" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="old" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cg" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cg" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="miniGame" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="shapes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cg" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cg" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="miniGame" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cg" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cg" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="miniGame" type="462c0819:PsiDirectoryNode" />
-              <item name="music" type="462c0819:PsiDirectoryNode" />
+              <item name="score" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cg" type="b2602c69:ProjectViewProjectNode" />
@@ -308,13 +286,19 @@
             </path>
             <path>
               <item name="cg" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cg" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="miniGame" type="462c0819:PsiDirectoryNode" />
+              <item name="scoreData" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cg" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -327,9 +311,9 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555288091954" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555295592015" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/jogl-all.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/gson-2.6.2.jar!/" />
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -487,9 +471,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.2647504" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.2685325" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Learn" order="3" />
@@ -497,9 +480,9 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="6" />
       <window_info id="Favorites" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="0" weight="0.32872504" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.32872504" />
       <window_info anchor="bottom" id="Message" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.18740399" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.15360983" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39938557" />
       <window_info anchor="bottom" id="Find" order="4" weight="0.32872504" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
@@ -512,7 +495,6 @@
       <window_info anchor="bottom" id="Profiler" order="12" />
       <window_info anchor="bottom" id="Event Log" order="13" weight="0.32872504" />
       <window_info anchor="bottom" id="Messages" order="14" weight="0.32872504" />
-      <window_info anchor="right" id="Coverage" side_tool="true" weight="0.32980332" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" id="Palette&#9;" order="2" />
@@ -524,6 +506,7 @@
       <window_info anchor="right" id="Database" order="8" />
       <window_info anchor="right" id="Palette" order="9" />
       <window_info anchor="right" id="Maven Projects" order="10" />
+      <window_info anchor="right" id="Coverage" order="11" side_tool="true" weight="0.32980332" />
     </layout>
   </component>
   <component name="UnknownFeatures">
@@ -538,33 +521,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/miniGame/img/logo.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/miniGame/style/style.css" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/event/EventHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="44" column="9" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/scene/Parent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="80" column="22" selection-start-line="80" selection-start-column="22" selection-end-line="80" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/scene/Scene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="233" column="11" selection-start-line="233" selection-start-column="11" selection-end-line="233" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/miniGame/fxml/info.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/miniGame/fxml/sobre.fxml" />
     <entry file="file://$PROJECT_DIR$/src/miniGame/controller/Events.java" />
     <entry file="file://$PROJECT_DIR$/src/miniGame/fxml/gui.fxml" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/scene/paint/Color.java">
@@ -833,44 +789,93 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/miniGame/controller/Renderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="47" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/miniGame/model/score/Score.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cg.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/computacaoGrafica.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/miniGame/MainScore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="43" column="51" selection-start-line="43" selection-start-column="51" selection-end-line="43" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/miniGame/controller/RendererScore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="126" column="28" selection-start-line="126" selection-start-column="28" selection-end-line="126" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/miniGame/controller/MenuRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="211" column="40" selection-start-line="211" selection-start-column="38" selection-end-line="211" selection-end-column="40" />
+        <state relative-caret-position="355">
+          <caret line="251" column="10" selection-start-line="251" selection-start-column="10" selection-end-line="251" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#670#671#0" expanded="true" />
             <element signature="e#713#714#0" expanded="true" />
             <element signature="method#init#0;class#MenuRenderer#0" />
-            <element signature="method#drawText#0;class#MenuRenderer#0" />
             <element signature="method#display1#0;class#MenuRenderer#0" />
-            <element signature="e#11375#11376#0" expanded="true" />
-            <element signature="e#11435#11436#0" expanded="true" />
-            <element signature="e#11498#11499#0" expanded="true" />
-            <element signature="e#11558#11559#0" expanded="true" />
-            <element signature="e#11594#11595#0" expanded="true" />
-            <element signature="e#11624#11625#0" expanded="true" />
-            <element signature="e#11663#11664#0" expanded="true" />
-            <element signature="e#11694#11695#0" expanded="true" />
-            <element signature="e#11729#11730#0" expanded="true" />
-            <element signature="e#11758#11759#0" expanded="true" />
-            <element signature="e#11792#11793#0" expanded="true" />
-            <element signature="e#11822#11823#0" expanded="true" />
+            <element signature="e#12260#12261#0" expanded="true" />
+            <element signature="e#12320#12321#0" expanded="true" />
+            <element signature="e#12383#12384#0" expanded="true" />
+            <element signature="e#12443#12444#0" expanded="true" />
+            <element signature="e#12479#12480#0" expanded="true" />
+            <element signature="e#12509#12510#0" expanded="true" />
+            <element signature="e#12548#12549#0" expanded="true" />
+            <element signature="e#12579#12580#0" expanded="true" />
+            <element signature="e#12614#12615#0" expanded="true" />
+            <element signature="e#12643#12644#0" expanded="true" />
+            <element signature="e#12677#12678#0" expanded="true" />
+            <element signature="e#12707#12708#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/miniGame/model/score/ScoreData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="70" column="32" lean-forward="true" selection-start-line="70" selection-start-column="32" selection-end-line="70" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/miniGame/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="136" column="50" selection-start-line="136" selection-start-column="50" selection-end-line="136" selection-end-column="50" />
+        <state relative-caret-position="984">
+          <caret line="250" lean-forward="true" selection-start-line="250" selection-end-line="250" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="class#1832:4014" />
-            <element signature="method#mouseMoved#0;class#1832:4014" />
-            <element signature="e#2131#2561#1" />
-            <element signature="e#2715#3111#1" />
-            <element signature="e#3266#3839#1" />
+            <element signature="class#1866:4048" />
+            <element signature="method#mouseMoved#0;class#1866:4048" />
+            <element signature="class#4091:5425" />
+            <element signature="class#5925:6422" />
           </folding>
         </state>
       </provider>
@@ -886,7 +891,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

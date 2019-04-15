@@ -195,7 +195,7 @@ public class MenuRenderer implements GLEventListener {
         gl.glLoadIdentity();
 
 
-        if(scale[2]){
+       /* if(scale[2]){
             gl.glBegin(GL2.GL_QUADS);
             gl.glColor3f(1.0f, 0.0f, 0.0f);
             gl.glVertex2f(400-(200*1.25f),150-(50*1.25f));
@@ -211,7 +211,7 @@ public class MenuRenderer implements GLEventListener {
             gl.glVertex2i(400+200, 150+50);
             gl.glVertex2i(400-200,150+50);
             gl.glEnd();
-        }
+        }*/
 
 
 
@@ -246,9 +246,10 @@ public class MenuRenderer implements GLEventListener {
         pt.setX(325);
         textRenderer.draw("Score", (int) (pt.getX()), (int) (pt.getY()));
 
-        pt.setY(200-50);
+       /* pt.setY(200-50);
         pt.setX(325);
         textRenderer.draw("Quit", (int) (pt.getX()), (int) (pt.getY()));
+        */
         textRenderer.endRendering();
 
         gl.glLoadIdentity();

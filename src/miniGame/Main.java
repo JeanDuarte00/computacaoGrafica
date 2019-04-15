@@ -7,6 +7,7 @@ import com.jogamp.opengl.util.FPSAnimator;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import miniGame.controller.MenuRenderer;
+import miniGame.controller.RendererScore;
 import miniGame.model.utils.*;
 import miniGame.model.old.Quadrilater;
 import miniGame.model.old.QuadrilaterPainter;
@@ -23,7 +24,8 @@ import java.awt.event.MouseMotionListener;
 
 public class Main extends Application {
 
-    private MenuRenderer renderer = new MenuRenderer();
+    private MenuRenderer menuRender = new MenuRenderer();
+    private RendererScore scoreRender = new RendererScore();
 
     private static Player player;
 
@@ -40,7 +42,6 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
 
         WindowEvent windowEvent = new WindowEvent();
-        CanvasEventer canvasEventer = new CanvasEventer();
 
 
         // all configuration
@@ -49,12 +50,16 @@ public class Main extends Application {
         GLCapabilities capabilities = new GLCapabilities(profile);
 
         GLCanvas menuCanvas = new GLCanvas(capabilities);
+        GLCanvas scoreCanvas = new GLCanvas(capabilities);
         GLCanvas gameCanvas = new GLCanvas(capabilities);
+
         menuCanvas.setSize(sceneDimension.getWidth(), sceneDimension.getHeight());
         gameCanvas.setSize(sceneDimension.getWidth(), sceneDimension.getHeight());
+        scoreCanvas.setSize(sceneDimension.getWidth(), sceneDimension.getHeight());
 
         JFrame menuFrame = new JFrame("Mini Game - Menu");
         JFrame gameFrame = new JFrame("Mini Game - ClickFall");
+        JFrame scoreFrame = new JFrame("Mini Game - Scores");
 
         menuCanvas.addMouseMotionListener(new MouseMotionListener() {
 
@@ -72,57 +77,57 @@ public class Main extends Application {
                 if(p.x<150&&p.x>50){
                     if(p.y<650&&p.y>550){
                         //rotate0
-                        renderer.setRotate(0);
+                        menuRender.setRotate(0);
                     }else{
-                        renderer.disableRotate(0);
+                        menuRender.disableRotate(0);
                     }
                     if(p.y<150&&p.y>50){
-                        renderer.setRotate(3);
+                        menuRender.setRotate(3);
                     }else{
-                        renderer.disableRotate(3);
+                        menuRender.disableRotate(3);
                     }
                 }else{
-                    renderer.disableRotate(0);
-                    renderer.disableRotate(3);
+                    menuRender.disableRotate(0);
+                    menuRender.disableRotate(3);
                 }
                 if(p.x<750&&p.x>650){
                     if(p.y<650&&p.y>550){
-                        renderer.setRotate(2);
+                        menuRender.setRotate(2);
                     }else{
-                        renderer.disableRotate(2);
+                        menuRender.disableRotate(2);
                     }
                     if(p.y<150&&p.y>50){
-                        renderer.setRotate(1);
+                        menuRender.setRotate(1);
                     }else{
-                        renderer.disableRotate(1);
+                        menuRender.disableRotate(1);
                     }
                 }else{
-                    renderer.disableRotate(1);
-                    renderer.disableRotate(2);
+                    menuRender.disableRotate(1);
+                    menuRender.disableRotate(2);
                 }
 
                 if(p.x<650&&p.x>150){
                     if(p.y<500&&p.y>400){
-                        renderer.focusMenu(0);
+                        menuRender.focusMenu(0);
                     }else{
-                        renderer.notFocus(0);
+                        menuRender.notFocus(0);
                     }
 
                     if(p.y<350&&p.y>250){
-                        renderer.focusMenu(1);
+                        menuRender.focusMenu(1);
                     }else{
-                        renderer.notFocus(1);
+                        menuRender.notFocus(1);
                     }
 
                     if(p.y<200&&p.y>100){
-                        renderer.focusMenu(2);
+                        menuRender.focusMenu(2);
                     }else{
-                        renderer.notFocus(2);
+                        menuRender.notFocus(2);
                     }
                 }else{
-                    renderer.notFocus(0);
-                    renderer.notFocus(1);
-                    renderer.notFocus(2);
+                    menuRender.notFocus(0);
+                    menuRender.notFocus(1);
+                    menuRender.notFocus(2);
                 }
 
 
@@ -153,6 +158,9 @@ public class Main extends Application {
                 if(e.getX()>200 && e.getX()<600){
                     if(e.getY()>400 && e.getY()<500){
                         System.out.println("SCORE: "+e.getX());
+                        menuCanvas.setFocusable(false);
+                        menuFrame.setVisible(false);
+                        scoreFrame.setVisible(true);
                         // code here
                     }
                 }
@@ -180,41 +188,77 @@ public class Main extends Application {
 
             }
         });
+        scoreCanvas.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                // exit
+                System.out.println("SCORES: "+e.getX()+"--"+e.getY());
+                if(e.getX()>300 && e.getX()<500) {
+                    if (e.getY()>660 && e.getY()<720) {
+                        System.out.println("SCORES-VOLTAR: "+e.getX());
+                        menuCanvas.setFocusable(true);
+                        menuFrame.setVisible(true);
+                        scoreFrame.setVisible(false);
+                        // code here
+                    }
+                }
+            }
 
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
 
         windowEvent.close( menuFrame );
         windowEvent.close( gameFrame );
+        windowEvent.close( scoreFrame );
 
+        scoreFrame.getContentPane().add(scoreCanvas);
         menuFrame.getContentPane().add(menuCanvas);
         gameFrame.getContentPane().add(gameCanvas);
 
         menuFrame.setSize(menuFrame.getContentPane().getPreferredSize());
         gameFrame.setSize(menuFrame.getContentPane().getPreferredSize());
+        scoreFrame.setSize(menuFrame.getContentPane().getPreferredSize());
 
         menuFrame.setResizable(false);
+        gameFrame.setResizable(false);
+        scoreFrame.setResizable(false);
 
         menuFrame.setVisible(true);
         gameFrame.setVisible(false);
+        scoreFrame.setVisible(false);
 
         menuCanvas.setFocusable(true);
         gameCanvas.setFocusable(false);
+        scoreCanvas.setFocusable(false);
 
-        menuFrame.setLocation(new Point(100, 10));
+        menuFrame.setLocation(new Point(20, 20));
         gameFrame.setLocation(new Point(20, 20));
-
-        Quadrilater square = new QuadrilaterPainter().rectangle(0.2, 0.1);
-        square.setColor(new ColorPainter(1, 0, 0));
-        square.setAxis(new Axis(0, 0, 0));
-
-
-        Shape quadrado = new Square();
-        quadrado.setColor(new ColorPainter(1, 0, 0));
-        quadrado.setAxis(new Axis(0, 0, 0));
+        scoreFrame.setLocation(new Point(20, 20));
 
 
         final FPSAnimator animator = new FPSAnimator(menuCanvas, 400, true);
         animator.start();
-        menuCanvas.addGLEventListener(renderer);
+        menuCanvas.addGLEventListener(menuRender);
+        scoreCanvas.addGLEventListener(scoreRender);
+        // gameCanvas.addGLEventListener(gameRender);
 
     }
 
