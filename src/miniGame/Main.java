@@ -25,7 +25,7 @@ public class Main extends Application {
 
     private int choosen =  (int)(Math.random() * 4) + 1;
     private static int objects[] = new int[4];
-    private static String playerName;
+    public static String playerName;
     private MenuRenderer menuRender = new MenuRenderer();
     private RendererScore scoreRender = new RendererScore();
     private GameRenderer gameRender = new GameRenderer();
@@ -45,6 +45,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+
         gameRender.createListAndPosition();
         System.out.println("Chosen: "+choosen);
         WindowEvent windowEvent = new WindowEvent();
@@ -238,8 +239,10 @@ public class Main extends Application {
 
             }
         });
+        final FPSAnimator animatorGame = new FPSAnimator(gameCanvas, 400, true);
         gameCanvas.addMouseListener(new MouseListener() {
             @Override
+
             public void mouseClicked(MouseEvent e) {
                 int selected = -1;
                 System.out.println("GAME X--Y: "+e.getX()+"--"+e.getY());
@@ -271,19 +274,54 @@ public class Main extends Application {
                         selected = 3;
                     }
                 }
+                if ( selected == gameRender.getResultPosition() || selected != gameRender.getResultPosition()) {
+                    if (GameRenderer.getTimer() > 1) {
+                        animatorGame.stop();
+                        ScoreData score = new ScoreData();
+                        JFrame input = new JFrame("Entre seu nome para salvar!");
+                        input.setSize(250, 100);
+                        input.setLocation(new Point(20, 20));
+                        input.getContentPane().setLayout(new FlowLayout());
+                        JTextField extfield = new JTextField("", 30);
 
-                if ( selected == gameRender.getResultPosition()){
-                    gameRender.upScore(1);
-                    new Effects("C://repositorios/cg/computacaoGrafica/src/miniGame/music/gainScore.wav");
-                    gameRender.createListAndPosition();
+                        JButton btn = new JButton("Salvar");
+                        btn.setBounds(100, 100, 140, 40);
+                        btn.addActionListener(new ActionListener() {
 
-                } else if ( selected != gameRender.getResultPosition() ) {
-                    gameRender.downlife();
-                    new Effects("C://repositorios/cg/computacaoGrafica/src/miniGame/music/loseScore.wav");
-                    gameRender.createListAndPosition();
+                            @Override
+                            public void actionPerformed(ActionEvent actionEvent) {
+                                Main.playerName = extfield.getText();
+                                extfield.setText("Enviado com sucesso!");
+                                score.saveScore(new Score(Main.playerName, GameRenderer.getScore()));
+
+                                System.exit(0);
+                            }
+
+
+                        });
+                        input.getContentPane().add(extfield);
+                        input.getContentPane().add(btn);
+
+                        input.pack();
+                        input.setVisible(true);
+
+                    }
+                    else if ( selected == gameRender.getResultPosition()){
+                        gameRender.upScore(1);
+                        GameRenderer.setTimer(0);
+                        new Effects("C://repositorios/cg/computacaoGrafica/src/miniGame/music/gainScore.wav");
+                        gameRender.createListAndPosition();
+
+                    } else if ( selected != gameRender.getResultPosition() ) {
+                        gameRender.downlife();
+                        GameRenderer.setTimer(0);
+                        new Effects("C://repositorios/cg/computacaoGrafica/src/miniGame/music/loseScore.wav");
+                        gameRender.createListAndPosition();
+                    }
                 }
-                if(GameRenderer.getLife()==-1){
 
+
+                if(GameRenderer.getLife()==-1 ){
 
                     JFrame input = new JFrame("Entre seu nome para salvar!");
                     input.setSize(250, 100);
@@ -371,7 +409,6 @@ public class Main extends Application {
 
         final FPSAnimator animator = new FPSAnimator(menuCanvas, 400, true);
         animator.start();
-        final FPSAnimator animatorGame = new FPSAnimator(gameCanvas, 400, true);
         animatorGame.start();
         menuCanvas.addGLEventListener(menuRender);
         scoreCanvas.addGLEventListener(scoreRender);
@@ -379,6 +416,7 @@ public class Main extends Application {
 
 
     }
+
 
 
 

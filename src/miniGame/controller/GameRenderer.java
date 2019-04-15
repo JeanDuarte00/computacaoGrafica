@@ -6,18 +6,34 @@ import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;
 import com.jogamp.opengl.glu.GLU;
 import com.jogamp.opengl.util.awt.TextRenderer;
+import miniGame.Main;
 import miniGame.model.enums.Colors;
+import miniGame.model.score.Score;
+import miniGame.model.score.ScoreData;
 import miniGame.model.shapes.Shape;
 import miniGame.model.utils.Axis;
 
 
+import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.*;
 import java.lang.reflect.Array;
 import java.util.LinkedList;
 import java.util.List;
 
 public class GameRenderer implements GLEventListener {
+
+    public static void setTimer(float timer) {
+        GameRenderer.timer = timer;
+    }
+
+    private static float timer=0;
+
+    public static float getTimer() {
+        return timer;
+    }
 
     private  List<Integer> positions ;
     private Colors color;
@@ -80,8 +96,13 @@ public class GameRenderer implements GLEventListener {
         textRenderer.draw("Score: ", (int) (pt.getX()), (int) (pt.getY()));
         textRenderer.draw("" + score, (int) (pt.getX() + 10), (int) (pt.getY() - 30));
         textRenderer.draw("Vidas: ", (int) (pt.getX()+150), (int) (pt.getY()));
+        if(timer>1){
+            textRenderer.draw("TIMEOUT!", (int) (pt.getX()+200), (int) (pt.getY()-250));
+            textRenderer.draw("clique na tela para finalizar.", (int) (pt.getX()+200), (int) (pt.getY()-300));
+        }
         textRenderer.draw("" + life, (int) (pt.getX() + 160), (int) (pt.getY() - 30));
         textRenderer.endRendering();
+
 
         // field to display the current one
         gl.glBegin(GL2.GL_QUADS);
@@ -92,7 +113,6 @@ public class GameRenderer implements GLEventListener {
         gl.glVertex2i(700-150,680);
         gl.glLoadIdentity();
         gl.glEnd();
-
         // options
 
         gl.glBegin(GL2.GL_QUADS);
@@ -131,6 +151,17 @@ public class GameRenderer implements GLEventListener {
         gl.glLoadIdentity();
         gl.glEnd();
 
+
+        gl.glBegin(GL2.GL_QUADS);
+        gl.glColor3f(1.0f, 1.0f, 1.0f);    // Set the current drawing color to light blue
+        gl.glVertex2f(0.0f,0.0f);
+        gl.glVertex2f(0.0f, 100.0f);
+        gl.glVertex2f((1.0f-timer)*800, 100);
+        gl.glVertex2f((1.0f-timer)*800,0.0f);
+        gl.glLoadIdentity();
+        gl.glEnd();
+        System.out.println(timer);
+        timer += 1.0f/120.0f;
 
         //posição referencia
         createPolygon(gl,color,positions.get(correctPosition), 620, 615);
