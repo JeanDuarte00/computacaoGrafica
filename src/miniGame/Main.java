@@ -32,9 +32,7 @@ public class Main extends Application {
 
     public static void main(String[] args) {
 
-        // new Effects("C:\\Users\\jean_\\IdeaProjects\\cg\\src\\miniGame\\music\\gainScore.wav");
-
-        player = new Player("C:\\Users\\jean_\\IdeaProjects\\cg\\src\\miniGame\\music\\menu.wav");
+        player = new Player("C://repositorios/cg/computacaoGrafica/src/miniGame/music/menu.wav");
         player.play();
 
         Application.launch(args);
@@ -244,42 +242,41 @@ public class Main extends Application {
                 if(e.getX()>86 && e.getX()<235) {
                     if (e.getY()>429 && e.getY()<561) {
                         System.out.println("OPTION1:");
-                        // code here
-                       selected = objects[0];
+                        gameCanvas.display();
+                       selected = 0;
                     }
                 }
 
                 if(e.getX()>245 && e.getX()<491) {
                     if (e.getY()>429 && e.getY()<561) {
                         System.out.println("OPTION2:");
-                        // code here
-                        selected = objects[1];
+                        gameCanvas.display();
+                        selected = 1;
                     }
                 }
 
                 if(e.getX()>405 && e.getX()<554) {
                     if (e.getY()>429 && e.getY()<561) {
                         System.out.println("OPTION3:");
-                        // code here
-                        selected = objects[2];
+                        gameCanvas.display();
+                        selected = 2;
                     }
                 }
 
                 if(e.getX()>565 && e.getX()<714) {
                     if (e.getY()>429 && e.getY()<561) {
                         System.out.println("OPTION4:");
-                        // code here
-                        selected = objects[3];
+                        gameCanvas.display();
+                        selected = 3;
                     }
                 }
 
-                if ( selected == choosen ){
+                if ( selected == gameRender.getResultPosition()){
                     gameRender.upScore(1);
-                    new Effects("C:\\Users\\jean_\\IdeaProjects\\cg\\src\\miniGame\\music\\gainScore.wav");
+                    new Effects("C://repositorios/cg/computacaoGrafica/src/miniGame/music/gainScore.wav");
 
-                } else if ( selected == -1 ) {
-                    gameRender.downScore(1);
-                    new Effects("C:\\Users\\jean_\\IdeaProjects\\cg\\src\\miniGame\\music\\loseScore.wav");
+                } else if ( selected != gameRender.getResultPosition() ) {
+                    new Effects("C://repositorios/cg/computacaoGrafica/src/miniGame/music/loseScore.wav");
                 }
 
             }

@@ -21,10 +21,14 @@ public class GameRenderer implements GLEventListener {
 
 
     List<Shape> shapes;
-    private static int score = 10;
-    private int score;
+    private int score = 10;
     private List<Colors> colorsList= Arrays.asList(Colors.VERMELHO,Colors.AMARELO,Colors.AZUL,Colors.VERDE);
     private Random rand = new Random();
+    private int resultPosition = 1;
+
+    public int getResultPosition() {
+        return resultPosition;
+    }
 
     public void upScore (int up) {
         this.score  = this.score + up ;
@@ -63,14 +67,11 @@ public class GameRenderer implements GLEventListener {
         TextRenderer textRenderer = new TextRenderer(new Font("Verdana", Font.BOLD, 30));
         textRenderer.beginRendering(800, 800);
         textRenderer.setSmoothing(true);
-
+        GL2 gl = glAutoDrawable.getGL().getGL2();
         Axis pt = new Axis(85, 700, 0);
         textRenderer.draw("Score: ", (int) (pt.getX()), (int) (pt.getY()));
-        textRenderer.draw(""+score, (int) (pt.getX()+10), (int) (pt.getY()-30));
+        textRenderer.draw("" + score, (int) (pt.getX() + 10), (int) (pt.getY() - 30));
         textRenderer.endRendering();
-
-
-        GL2 gl = glAutoDrawable.getGL().getGL2();
 
         // field to display the current one
         gl.glBegin(GL2.GL_QUADS);
@@ -121,15 +122,16 @@ public class GameRenderer implements GLEventListener {
         gl.glEnd();
 
 
-
-
         List<Integer> polygonSides = radom();
         List<Integer> objectColor = ramdomicObject();
         List<Integer> objectSides = ramdomicObject();
 
-        createPolygon(gl,colorsList.get(objectColor.get(0)), polygonSides.get(objectSides.get(0)), 620, 615);
+        createPolygon(gl,colorsList.get(objectColor.get(0)),polygonSides.get(objectSides.get(0)) , 620, 615);
+
+        //polygonSides.get(objectSides.get(0));
         gl.glLoadIdentity();
         gl.glEnd();
+
 
         createPolygon(gl, colorsList.get(objectColor.get(0)), polygonSides.get(0), 160,265);
         gl.glLoadIdentity();
@@ -143,7 +145,6 @@ public class GameRenderer implements GLEventListener {
         createPolygon(gl, colorsList.get(objectColor.get(0)), polygonSides.get(2), 480, 265);
         gl.glLoadIdentity();
         gl.glEnd();
-
 
         createPolygon(gl, colorsList.get(objectColor.get(0)), polygonSides.get(3) ,640 ,265);
         gl.glLoadIdentity();
@@ -195,17 +196,11 @@ public class GameRenderer implements GLEventListener {
         Collections.shuffle(values);
         return values;
     }
-    private List<Integer> ramdomicObject
-            (){
+    private List<Integer> ramdomicObject(){
 
         List<Integer> values = Arrays.asList(0,1,2,3);
         Collections.shuffle(values);
         return values;
-    }
-    private List<Colors> colorsRandom(){
-
-        Collections.shuffle(colorsList);
-        return colorsList;
     }
 
 }
