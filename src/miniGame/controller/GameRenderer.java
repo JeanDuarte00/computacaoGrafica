@@ -7,8 +7,7 @@ import com.jogamp.opengl.glu.GLU;
 import com.jogamp.opengl.util.awt.TextRenderer;
 import miniGame.model.shapes.Shape;
 import miniGame.model.utils.Axis;
-import miniGame.model.utils.Dimension;
-import miniGame.model.utils.Position;
+
 
 import java.awt.*;
 import java.util.LinkedList;
@@ -61,20 +60,20 @@ public class GameRenderer implements GLEventListener {
         // field to display the current one
         gl.glBegin(GL2.GL_QUADS);
         gl.glColor3f(1.0f, 1.0f, 1.0f);    // Set the current drawing color to light blue
-        gl.glVertex2i(700-80,600-50);
-        gl.glVertex2i(700+50, 600-50);
-        gl.glVertex2i(700+50, 600+80);
-        gl.glVertex2i(700-80,600+80);
+        gl.glVertex2i(700-150,600-50);
+        gl.glVertex2i(700+0, 600-50);
+        gl.glVertex2i(700+0, 600+80);
+        gl.glVertex2i(700-150,600+80);
         gl.glLoadIdentity();
         gl.glEnd();
 
         // field to display options
         gl.glBegin(GL2.GL_QUADS);
         gl.glColor3f(1.0f, 1.0f, 1.0f);    // Set the current drawing color to light blue
-        gl.glVertex2i(50,250-50);
-        gl.glVertex2i(750, 250-50);
-        gl.glVertex2i(750, 450-50);
-        gl.glVertex2i(50,450-50);
+        gl.glVertex2i(100,250-50);
+        gl.glVertex2i(700, 250-50);
+        gl.glVertex2i(700, 450-50);
+        gl.glVertex2i(100,450-50);
         gl.glEnd();
         gl.glLoadIdentity();
         gl.glFlush();
