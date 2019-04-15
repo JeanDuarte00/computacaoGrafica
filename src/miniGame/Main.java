@@ -5,7 +5,10 @@ import com.jogamp.opengl.GLProfile;
 import com.jogamp.opengl.awt.GLCanvas;
 import com.jogamp.opengl.util.FPSAnimator;
 import javafx.application.Application;
+import javafx.geometry.Rectangle2D;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
+import miniGame.controller.GameRenderer;
 import miniGame.controller.MenuRenderer;
 import miniGame.controller.RendererScore;
 import miniGame.model.utils.*;
@@ -26,6 +29,7 @@ public class Main extends Application {
 
     private MenuRenderer menuRender = new MenuRenderer();
     private RendererScore scoreRender = new RendererScore();
+    private GameRenderer gameRender = new GameRenderer();
 
     private static Player player;
 
@@ -150,6 +154,9 @@ public class Main extends Application {
                 if(e.getX()>200 && e.getX()<600) {
                     if (e.getY()>250 && e.getY()<350) {
                         System.out.println("NEW: "+e.getX());
+                        menuCanvas.setFocusable(false);
+                        menuFrame.setVisible(false);
+                        gameFrame.setVisible(true);
                         // code here
                     }
                 }
@@ -224,6 +231,32 @@ public class Main extends Application {
 
             }
         });
+        gameCanvas.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
 
         windowEvent.close( menuFrame );
         windowEvent.close( gameFrame );
@@ -246,8 +279,8 @@ public class Main extends Application {
         scoreFrame.setVisible(false);
 
         menuCanvas.setFocusable(true);
-        gameCanvas.setFocusable(false);
-        scoreCanvas.setFocusable(false);
+        gameCanvas.setFocusable(true);
+        scoreCanvas.setFocusable(true);
 
         menuFrame.setLocation(new Point(20, 20));
         gameFrame.setLocation(new Point(20, 20));
@@ -258,7 +291,7 @@ public class Main extends Application {
         animator.start();
         menuCanvas.addGLEventListener(menuRender);
         scoreCanvas.addGLEventListener(scoreRender);
-        // gameCanvas.addGLEventListener(gameRender);
+        gameCanvas.addGLEventListener(gameRender);
 
     }
 
