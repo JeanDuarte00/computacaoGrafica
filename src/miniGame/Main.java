@@ -5,19 +5,12 @@ import com.jogamp.opengl.GLProfile;
 import com.jogamp.opengl.awt.GLCanvas;
 import com.jogamp.opengl.util.FPSAnimator;
 import javafx.application.Application;
-import javafx.geometry.Rectangle2D;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 import miniGame.controller.GameRenderer;
 import miniGame.controller.MenuRenderer;
 import miniGame.controller.RendererScore;
 import miniGame.model.utils.*;
-import miniGame.model.old.Quadrilater;
-import miniGame.model.old.QuadrilaterPainter;
-import miniGame.model.shapes.Shape;
-import miniGame.model.shapes.Square;
 import miniGame.model.utils.Dimension;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -27,6 +20,10 @@ import java.awt.event.MouseMotionListener;
 
 public class Main extends Application {
 
+    private int choosen =  (int)(Math.random() * 4) + 1;
+    private static int objects[] = new int[4];
+
+
     private MenuRenderer menuRender = new MenuRenderer();
     private RendererScore scoreRender = new RendererScore();
     private GameRenderer gameRender = new GameRenderer();
@@ -34,6 +31,8 @@ public class Main extends Application {
     private static Player player;
 
     public static void main(String[] args) {
+
+        // new Effects("C:\\Users\\jean_\\IdeaProjects\\cg\\src\\miniGame\\music\\gainScore.wav");
 
         player = new Player("C:\\Users\\jean_\\IdeaProjects\\cg\\src\\miniGame\\music\\menu.wav");
         player.play();
@@ -45,7 +44,12 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
+        System.out.println("Chosen: "+choosen);
         WindowEvent windowEvent = new WindowEvent();
+        objects[0] = 1;
+        objects[1] = 2;
+        objects[2] = 3;
+        objects[3] = 4;
 
 
         // all configuration
@@ -234,6 +238,49 @@ public class Main extends Application {
         gameCanvas.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                int selected = -1;
+                System.out.println("GAME X--Y: "+e.getX()+"--"+e.getY());
+
+                if(e.getX()>86 && e.getX()<235) {
+                    if (e.getY()>429 && e.getY()<561) {
+                        System.out.println("OPTION1:");
+                        // code here
+                       selected = objects[0];
+                    }
+                }
+
+                if(e.getX()>245 && e.getX()<491) {
+                    if (e.getY()>429 && e.getY()<561) {
+                        System.out.println("OPTION2:");
+                        // code here
+                        selected = objects[1];
+                    }
+                }
+
+                if(e.getX()>405 && e.getX()<554) {
+                    if (e.getY()>429 && e.getY()<561) {
+                        System.out.println("OPTION3:");
+                        // code here
+                        selected = objects[2];
+                    }
+                }
+
+                if(e.getX()>565 && e.getX()<714) {
+                    if (e.getY()>429 && e.getY()<561) {
+                        System.out.println("OPTION4:");
+                        // code here
+                        selected = objects[3];
+                    }
+                }
+
+                if ( selected == choosen ){
+                    gameRender.upScore(1);
+                    new Effects("C:\\Users\\jean_\\IdeaProjects\\cg\\src\\miniGame\\music\\gainScore.wav");
+
+                } else if ( selected == -1 ) {
+                    gameRender.downScore(1);
+                    new Effects("C:\\Users\\jean_\\IdeaProjects\\cg\\src\\miniGame\\music\\loseScore.wav");
+                }
 
             }
 

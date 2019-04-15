@@ -10,6 +10,7 @@ import miniGame.model.utils.Axis;
 
 
 import java.awt.*;
+import java.lang.reflect.Array;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -17,10 +18,17 @@ public class GameRenderer implements GLEventListener {
 
 
     List<Shape> shapes;
-    private int score;
+    private static int score = 10;
+
+    public void upScore (int up) {
+        this.score  = this.score + up ;
+    }
+
+    public void downScore (int down) {
+        this.score = this.score - down ;
+    }
 
     public GameRenderer(){
-        this.score = 0;
         if(shapes == null)
             this.shapes = new LinkedList<Shape>();
         else
@@ -49,7 +57,7 @@ public class GameRenderer implements GLEventListener {
         textRenderer.beginRendering(800, 800);
         textRenderer.setSmoothing(true);
 
-        Axis pt = new Axis(10, 700, 0);
+        Axis pt = new Axis(85, 700, 0);
         textRenderer.draw("Score: ", (int) (pt.getX()), (int) (pt.getY()));
         textRenderer.draw(""+score, (int) (pt.getX()+10), (int) (pt.getY()-30));
         textRenderer.endRendering();
@@ -57,6 +65,53 @@ public class GameRenderer implements GLEventListener {
 
         GL2 gl = glAutoDrawable.getGL().getGL2();
 
+        // field to display the current one
+        gl.glBegin(GL2.GL_QUADS);
+        gl.glColor3f(1.0f, 1.0f, 1.0f);    // Set the current drawing color to light blue
+        gl.glVertex2i(700-150,600-50);
+        gl.glVertex2i(700+0, 600-50);
+        gl.glVertex2i(700+0, 600+80);
+        gl.glVertex2i(700-150,600+80);
+        gl.glLoadIdentity();
+        gl.glEnd();
+
+        // options
+
+        gl.glBegin(GL2.GL_QUADS);
+        gl.glColor3f(1.0f, 1.0f, 1.0f);    // Set the current drawing color to light blue
+        gl.glVertex2i(85,200);
+        gl.glVertex2i(235, 200);
+        gl.glVertex2i(235, 330);
+        gl.glVertex2i(85,330);
+        gl.glLoadIdentity();
+        gl.glEnd();
+
+        gl.glBegin(GL2.GL_QUADS);
+        gl.glColor3f(1.0f, 1.0f, 1.0f);    // Set the current drawing color to light blue
+        gl.glVertex2i(245,200);
+        gl.glVertex2i(395, 200);
+        gl.glVertex2i(395, 330);
+        gl.glVertex2i(245,330);
+        gl.glLoadIdentity();
+        gl.glEnd();
+
+        gl.glBegin(GL2.GL_QUADS);
+        gl.glColor3f(1.0f, 1.0f, 1.0f);    // Set the current drawing color to light blue
+        gl.glVertex2i(405,200);
+        gl.glVertex2i(555, 200);
+        gl.glVertex2i(555, 330);
+        gl.glVertex2i(405,330);
+        gl.glLoadIdentity();
+        gl.glEnd();
+
+        gl.glBegin(GL2.GL_QUADS);
+        gl.glColor3f(1.0f, 1.0f, 1.0f);    // Set the current drawing color to light blue
+        gl.glVertex2i(565,200);
+        gl.glVertex2i(715, 200);
+        gl.glVertex2i(715, 330);
+        gl.glVertex2i(565,330);
+        gl.glLoadIdentity();
+        gl.glEnd();
 
     }
 
