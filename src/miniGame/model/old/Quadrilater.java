@@ -1,7 +1,7 @@
 package miniGame.model.old;
 
 import com.jogamp.opengl.GL2;
-import miniGame.model.configuration.Position;
+import miniGame.model.utils.Position;
 import miniGame.model.shapes.Shape;
 
 

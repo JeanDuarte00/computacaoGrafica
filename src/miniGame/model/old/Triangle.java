@@ -3,7 +3,7 @@ package miniGame.model.old;
 import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;
-import miniGame.model.configuration.Position;
+import miniGame.model.utils.Position;
 
 public class Triangle implements GLEventListener {
     Position p1;

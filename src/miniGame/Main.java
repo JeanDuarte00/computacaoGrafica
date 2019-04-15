@@ -6,30 +6,42 @@ import com.jogamp.opengl.awt.GLCanvas;
 import com.jogamp.opengl.util.FPSAnimator;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import miniGame.controller.Renderer;
-import miniGame.model.configuration.Axis;
-import miniGame.model.configuration.ColorPainter;
-import miniGame.model.configuration.Dimension;
+import miniGame.controller.MenuRenderer;
+import miniGame.model.utils.*;
 import miniGame.model.old.Quadrilater;
 import miniGame.model.old.QuadrilaterPainter;
 import miniGame.model.shapes.Shape;
 import miniGame.model.shapes.Square;
+import miniGame.model.utils.Dimension;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
 
 public class Main extends Application {
 
-    Renderer renderer = new Renderer();
+    private MenuRenderer renderer = new MenuRenderer();
+
+    private static Player player;
 
     public static void main(String[] args) {
+
+        player = new Player("C:\\Users\\jean_\\IdeaProjects\\cg\\src\\miniGame\\music\\menu.wav");
+        player.play();
 
         Application.launch(args);
     }
 
+
     @Override
-    public void start(Stage stage ) throws Exception{
+    public void start(Stage stage) throws Exception {
+
+        WindowEvent windowEvent = new WindowEvent();
+        CanvasEventer canvasEventer = new CanvasEventer();
+
 
         // all configuration
         Dimension sceneDimension = new Dimension(800, 800);
@@ -38,11 +50,140 @@ public class Main extends Application {
 
         GLCanvas menuCanvas = new GLCanvas(capabilities);
         GLCanvas gameCanvas = new GLCanvas(capabilities);
-        menuCanvas.setSize( sceneDimension.getWidth(), sceneDimension.getHeight() );
-        gameCanvas.setSize( sceneDimension.getWidth(), sceneDimension.getHeight() );
+        menuCanvas.setSize(sceneDimension.getWidth(), sceneDimension.getHeight());
+        gameCanvas.setSize(sceneDimension.getWidth(), sceneDimension.getHeight());
 
         JFrame menuFrame = new JFrame("Mini Game - Menu");
         JFrame gameFrame = new JFrame("Mini Game - ClickFall");
+
+        menuCanvas.addMouseMotionListener(new MouseMotionListener() {
+
+            @Override
+            public void mouseDragged(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseMoved(MouseEvent e) {
+                Point p= e.getPoint();
+
+                p.y=(p.y-800)*-1;
+
+                if(p.x<150&&p.x>50){
+                    if(p.y<650&&p.y>550){
+                        //rotate0
+                        renderer.setRotate(0);
+                    }else{
+                        renderer.disableRotate(0);
+                    }
+                    if(p.y<150&&p.y>50){
+                        renderer.setRotate(3);
+                    }else{
+                        renderer.disableRotate(3);
+                    }
+                }else{
+                    renderer.disableRotate(0);
+                    renderer.disableRotate(3);
+                }
+                if(p.x<750&&p.x>650){
+                    if(p.y<650&&p.y>550){
+                        renderer.setRotate(2);
+                    }else{
+                        renderer.disableRotate(2);
+                    }
+                    if(p.y<150&&p.y>50){
+                        renderer.setRotate(1);
+                    }else{
+                        renderer.disableRotate(1);
+                    }
+                }else{
+                    renderer.disableRotate(1);
+                    renderer.disableRotate(2);
+                }
+
+                if(p.x<650&&p.x>150){
+                    if(p.y<500&&p.y>400){
+                        renderer.focusMenu(0);
+                    }else{
+                        renderer.notFocus(0);
+                    }
+
+                    if(p.y<350&&p.y>250){
+                        renderer.focusMenu(1);
+                    }else{
+                        renderer.notFocus(1);
+                    }
+
+                    if(p.y<200&&p.y>100){
+                        renderer.focusMenu(2);
+                    }else{
+                        renderer.notFocus(2);
+                    }
+                }else{
+                    renderer.notFocus(0);
+                    renderer.notFocus(1);
+                    renderer.notFocus(2);
+                }
+
+
+            }
+        });
+        menuCanvas.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                // exit
+                if(e.getX()>200 && e.getX()<600) {
+                    if (e.getY()>50 && e.getY()<150) {
+                        System.out.println("EXIT: "+e.getX());
+                        System.exit(0);
+                        // code here
+                    }
+                }
+
+                // new
+                if(e.getX()>200 && e.getX()<600) {
+                    if (e.getY()>250 && e.getY()<350) {
+                        System.out.println("NEW: "+e.getX());
+                        // code here
+                    }
+                }
+
+                // score
+                if(e.getX()>200 && e.getX()<600){
+                    if(e.getY()>400 && e.getY()<500){
+                        System.out.println("SCORE: "+e.getX());
+                        // code here
+                    }
+                }
+
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+
+
+        windowEvent.close( menuFrame );
+        windowEvent.close( gameFrame );
 
         menuFrame.getContentPane().add(menuCanvas);
         gameFrame.getContentPane().add(gameCanvas);
@@ -50,72 +191,33 @@ public class Main extends Application {
         menuFrame.setSize(menuFrame.getContentPane().getPreferredSize());
         gameFrame.setSize(menuFrame.getContentPane().getPreferredSize());
 
+        menuFrame.setResizable(false);
+
         menuFrame.setVisible(true);
         gameFrame.setVisible(false);
 
         menuCanvas.setFocusable(true);
         gameCanvas.setFocusable(false);
 
-        menuFrame.setLocation(new Point(10,10));
-        gameFrame.setLocation(new Point(20,20));
+        menuFrame.setLocation(new Point(100, 10));
+        gameFrame.setLocation(new Point(20, 20));
 
         Quadrilater square = new QuadrilaterPainter().rectangle(0.2, 0.1);
-        square.setColor( new ColorPainter(1,0,0) );
-        square.setAxis( new Axis(0,0,0) );
-
+        square.setColor(new ColorPainter(1, 0, 0));
+        square.setAxis(new Axis(0, 0, 0));
 
 
         Shape quadrado = new Square();
-        quadrado.setColor( new ColorPainter(1,0,0) );
-        quadrado.setAxis( new Axis(0,0,0) );
+        quadrado.setColor(new ColorPainter(1, 0, 0));
+        quadrado.setAxis(new Axis(0, 0, 0));
 
 
-        this.renderer.add( square );
-        this.renderer.add( quadrado );
-        final FPSAnimator animator = new FPSAnimator(menuCanvas, 400,true);
+        final FPSAnimator animator = new FPSAnimator(menuCanvas, 400, true);
         animator.start();
-        menuCanvas.addGLEventListener( renderer );
-
-/*
-
-        Triangle triangle = new Triangle(new Position(0.3,0.2), new Position(0.3, 0.23), new Position(0.6,0.1));
-        Rhombus rhombus = new Rhombus();
-        Quadrilater square = new QuadrilaterPainter().square(0.1);
-        Quadrilater rect = new QuadrilaterPainter().rectangle(0.8, 0.1);
-        Polygon polygon = new Polygon(
-                new Position(0.0, 0.7), new Position(0.8, 0.2), new Position(0.8, 0.2),
-                new Position(0.0, 0.7), new Position(0.8, 0.2), new Position(0.8, 0.2),
-                new Position(0.8, 0.2), new Position(0.0, 0.7)
-        );
-
-
-        Quadrilater btnPlay = new QuadrilaterPainter( ).rectangle(0.40,0.15);
-
-        Quadrilater btnClose = new QuadrilaterPainter( ).rectangle(0.40,0.15);
-
-
-        square.setColor(new ColorPainter(1,0,0));
-        square.setAxis(new Axis(0,0,0));
-        // put it to be executed
-        btnPlay.setAxis(new Axis(0,0.0,0.0));
-        btnPlay.setColor(new ColorPainter(1,1,0));
-        //glcanvas.addGLEventListener();
-
-        btnClose.setAxis(new Axis(0,0.3,0));
-        btnClose.setColor(new ColorPainter(0,0,1));
-        //glcanvas.addGLEventListener(triangle);
-
-        // draw to the canvas
-        //glcanvas.display();
-
-
-        //this.renderer.add(btnClose);
-        this.renderer.add(btnPlay);
-        this.renderer.add(square);
-
-        menuCanvas.addGLEventListener( renderer );
-*/
+        menuCanvas.addGLEventListener(renderer);
 
     }
+
+
 
 }

@@ -1,8 +1,8 @@
 package miniGame.model.shapes;
 
 import com.jogamp.opengl.GL2;
-import miniGame.model.configuration.Axis;
-import miniGame.model.configuration.ColorPainter;
+import miniGame.model.utils.Axis;
+import miniGame.model.utils.ColorPainter;
 
 
 public abstract class Shape implements Comparable<Shape> {

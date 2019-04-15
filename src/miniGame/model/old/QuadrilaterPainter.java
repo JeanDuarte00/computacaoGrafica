@@ -1,7 +1,6 @@
 package miniGame.model.old;
 
-import miniGame.model.configuration.Position;
-import miniGame.model.old.Quadrilater;
+import miniGame.model.utils.Position;
 
 public class QuadrilaterPainter {
 
