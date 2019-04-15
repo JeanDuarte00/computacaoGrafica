@@ -58,23 +58,23 @@ public class GameRenderer implements GLEventListener {
 
         GL2 gl = glAutoDrawable.getGL().getGL2();
 
+        // field to display the current one
         gl.glBegin(GL2.GL_QUADS);
-        gl.glColor3f(0.0f, 1.0f, 1.0f);    // Set the current drawing color to light blue
-        gl.glVertex2i(650,650-25);
-        gl.glVertex2i(750, 750-25);
-        gl.glVertex2i(750, 750-25);
-        gl.glVertex2i(650,650-25);
-        gl.glEnd();
+        gl.glColor3f(1.0f, 1.0f, 1.0f);    // Set the current drawing color to light blue
+        gl.glVertex2i(700-80,600-50);
+        gl.glVertex2i(700+50, 600-50);
+        gl.glVertex2i(700+50, 600+80);
+        gl.glVertex2i(700-80,600+80);
         gl.glLoadIdentity();
-        gl.glFlush();
+        gl.glEnd();
 
         // field to display options
         gl.glBegin(GL2.GL_QUADS);
         gl.glColor3f(1.0f, 1.0f, 1.0f);    // Set the current drawing color to light blue
-        gl.glVertex2i(50,250-25);
-        gl.glVertex2i(750, 250-25);
-        gl.glVertex2i(750, 450-25);
-        gl.glVertex2i(50,450-25);
+        gl.glVertex2i(50,250-50);
+        gl.glVertex2i(750, 250-50);
+        gl.glVertex2i(750, 450-50);
+        gl.glVertex2i(50,450-50);
         gl.glEnd();
         gl.glLoadIdentity();
         gl.glFlush();
