@@ -67,17 +67,41 @@ public class GameRenderer implements GLEventListener {
         gl.glLoadIdentity();
         gl.glEnd();
 
-        // field to display options
         gl.glBegin(GL2.GL_QUADS);
         gl.glColor3f(1.0f, 1.0f, 1.0f);    // Set the current drawing color to light blue
-        gl.glVertex2i(100,250-50);
-        gl.glVertex2i(700, 250-50);
-        gl.glVertex2i(700, 450-50);
-        gl.glVertex2i(100,450-50);
-        gl.glEnd();
+        gl.glVertex2i(85,200);
+        gl.glVertex2i(235, 200);
+        gl.glVertex2i(235, 330);
+        gl.glVertex2i(85,330);
         gl.glLoadIdentity();
-        gl.glFlush();
+        gl.glEnd();
 
+        gl.glBegin(GL2.GL_QUADS);
+        gl.glColor3f(1.0f, 1.0f, 1.0f);    // Set the current drawing color to light blue
+        gl.glVertex2i(245,200);
+        gl.glVertex2i(395, 200);
+        gl.glVertex2i(395, 330);
+        gl.glVertex2i(245,330);
+        gl.glLoadIdentity();
+        gl.glEnd();
+
+        gl.glBegin(GL2.GL_QUADS);
+        gl.glColor3f(1.0f, 1.0f, 1.0f);    // Set the current drawing color to light blue
+        gl.glVertex2i(405,200);
+        gl.glVertex2i(555, 200);
+        gl.glVertex2i(555, 330);
+        gl.glVertex2i(405,330);
+        gl.glLoadIdentity();
+        gl.glEnd();
+
+        gl.glBegin(GL2.GL_QUADS);
+        gl.glColor3f(1.0f, 1.0f, 1.0f);    // Set the current drawing color to light blue
+        gl.glVertex2i(565,200);
+        gl.glVertex2i(715, 200);
+        gl.glVertex2i(715, 330);
+        gl.glVertex2i(565,330);
+        gl.glLoadIdentity();
+        gl.glEnd();
 
     }
 
