@@ -3,6 +3,7 @@ package miniGame;
 import com.jogamp.opengl.GLCapabilities;
 import com.jogamp.opengl.GLProfile;
 import com.jogamp.opengl.awt.GLCanvas;
+import com.jogamp.opengl.util.Animator;
 import com.jogamp.opengl.util.FPSAnimator;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -23,7 +24,6 @@ public class Main extends Application {
     private int choosen =  (int)(Math.random() * 4) + 1;
     private static int objects[] = new int[4];
 
-
     private MenuRenderer menuRender = new MenuRenderer();
     private RendererScore scoreRender = new RendererScore();
     private GameRenderer gameRender = new GameRenderer();
@@ -35,13 +35,15 @@ public class Main extends Application {
         player = new Player("C://repositorios/cg/computacaoGrafica/src/miniGame/music/menu.wav");
         player.play();
 
-        Application.launch(args);
+
+
+            Application.launch(args);
     }
 
 
     @Override
     public void start(Stage stage) throws Exception {
-
+        gameRender.createListAndPosition();
         System.out.println("Chosen: "+choosen);
         WindowEvent windowEvent = new WindowEvent();
         objects[0] = 1;
@@ -58,6 +60,7 @@ public class Main extends Application {
         GLCanvas menuCanvas = new GLCanvas(capabilities);
         GLCanvas scoreCanvas = new GLCanvas(capabilities);
         GLCanvas gameCanvas = new GLCanvas(capabilities);
+
 
         menuCanvas.setSize(sceneDimension.getWidth(), sceneDimension.getHeight());
         gameCanvas.setSize(sceneDimension.getWidth(), sceneDimension.getHeight());
@@ -242,7 +245,7 @@ public class Main extends Application {
                 if(e.getX()>86 && e.getX()<235) {
                     if (e.getY()>429 && e.getY()<561) {
                         System.out.println("OPTION1:");
-                        gameCanvas.display();
+
                        selected = 0;
                     }
                 }
@@ -250,7 +253,7 @@ public class Main extends Application {
                 if(e.getX()>245 && e.getX()<491) {
                     if (e.getY()>429 && e.getY()<561) {
                         System.out.println("OPTION2:");
-                        gameCanvas.display();
+
                         selected = 1;
                     }
                 }
@@ -258,7 +261,7 @@ public class Main extends Application {
                 if(e.getX()>405 && e.getX()<554) {
                     if (e.getY()>429 && e.getY()<561) {
                         System.out.println("OPTION3:");
-                        gameCanvas.display();
+
                         selected = 2;
                     }
                 }
@@ -266,7 +269,7 @@ public class Main extends Application {
                 if(e.getX()>565 && e.getX()<714) {
                     if (e.getY()>429 && e.getY()<561) {
                         System.out.println("OPTION4:");
-                        gameCanvas.display();
+
                         selected = 3;
                     }
                 }
@@ -274,9 +277,12 @@ public class Main extends Application {
                 if ( selected == gameRender.getResultPosition()){
                     gameRender.upScore(1);
                     new Effects("C://repositorios/cg/computacaoGrafica/src/miniGame/music/gainScore.wav");
+                    gameRender.createListAndPosition();
 
                 } else if ( selected != gameRender.getResultPosition() ) {
+                    gameRender.downlife();
                     new Effects("C://repositorios/cg/computacaoGrafica/src/miniGame/music/loseScore.wav");
+                    gameRender.createListAndPosition();
                 }
 
             }
@@ -333,9 +339,12 @@ public class Main extends Application {
 
         final FPSAnimator animator = new FPSAnimator(menuCanvas, 400, true);
         animator.start();
+        final FPSAnimator animatorGame = new FPSAnimator(gameCanvas, 400, true);
+        animatorGame.start();
         menuCanvas.addGLEventListener(menuRender);
         scoreCanvas.addGLEventListener(scoreRender);
         gameCanvas.addGLEventListener(gameRender);
+
 
     }
 

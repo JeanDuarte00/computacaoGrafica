@@ -19,23 +19,23 @@ import java.util.List;
 
 public class GameRenderer implements GLEventListener {
 
-
+    private  List<Integer> positions ;
+    private Colors color;
+    private  int correctPosition;
     List<Shape> shapes;
-    private int score = 10;
-    private List<Colors> colorsList= Arrays.asList(Colors.VERMELHO,Colors.AMARELO,Colors.AZUL,Colors.VERDE);
-    private Random rand = new Random();
-    private int resultPosition = 1;
+    private static int score = 10;
+    private static int life = 3;
+    private static List<Colors> colorsList= Arrays.asList(Colors.VERMELHO,Colors.AMARELO,Colors.AZUL,Colors.VERDE);
 
     public int getResultPosition() {
-        return resultPosition;
+        return correctPosition;
     }
 
     public void upScore (int up) {
         this.score  = this.score + up ;
     }
-
-    public void downScore (int down) {
-        this.score = this.score - down ;
+    public void downlife() {
+        this.life  = this.life -1 ;
     }
 
 
@@ -69,8 +69,11 @@ public class GameRenderer implements GLEventListener {
         textRenderer.setSmoothing(true);
         GL2 gl = glAutoDrawable.getGL().getGL2();
         Axis pt = new Axis(85, 700, 0);
+        gl.glClear(GL.GL_COLOR_BUFFER_BIT| GL.GL_DEPTH_BUFFER_BIT);
         textRenderer.draw("Score: ", (int) (pt.getX()), (int) (pt.getY()));
         textRenderer.draw("" + score, (int) (pt.getX() + 10), (int) (pt.getY() - 30));
+        textRenderer.draw("Vidas: ", (int) (pt.getX()+150), (int) (pt.getY()));
+        textRenderer.draw("" + life, (int) (pt.getX() + 160), (int) (pt.getY() - 30));
         textRenderer.endRendering();
 
         // field to display the current one
@@ -122,37 +125,30 @@ public class GameRenderer implements GLEventListener {
         gl.glEnd();
 
 
-        List<Integer> polygonSides = radom();
-        List<Integer> objectColor = ramdomicObject();
-        List<Integer> objectSides = ramdomicObject();
-
-        createPolygon(gl,colorsList.get(objectColor.get(0)),polygonSides.get(objectSides.get(0)) , 620, 615);
-
-        //polygonSides.get(objectSides.get(0));
+        //posição referencia
+        createPolygon(gl,color,positions.get(correctPosition), 620, 615);
         gl.glLoadIdentity();
         gl.glEnd();
 
-
-        createPolygon(gl, colorsList.get(objectColor.get(0)), polygonSides.get(0), 160,265);
+        //primeiro objeto
+        createPolygon(gl, color, positions.get(0), 160,265);
         gl.glLoadIdentity();
         gl.glEnd();
 
-
-        createPolygon(gl, colorsList.get(objectColor.get(0)), polygonSides.get(1), 320,265);
+        //segundo objeto
+        createPolygon(gl, color, positions.get(1), 320,265);
         gl.glLoadIdentity();
         gl.glEnd();
 
-        createPolygon(gl, colorsList.get(objectColor.get(0)), polygonSides.get(2), 480, 265);
+        //terceiro objeto
+        createPolygon(gl, color, positions.get(2), 480, 265);
         gl.glLoadIdentity();
         gl.glEnd();
 
-        createPolygon(gl, colorsList.get(objectColor.get(0)), polygonSides.get(3) ,640 ,265);
+        //quarto objeto
+        createPolygon(gl, color, positions.get(3) ,640 ,265);
         gl.glLoadIdentity();
         gl.glEnd();
-
-
-
-
 
     }
 
@@ -181,26 +177,35 @@ public class GameRenderer implements GLEventListener {
         gl.glLoadIdentity();
     }
 
-    public void createPolygon(GL2 gl, Colors color, int sides, int x, int y){
+    public void createPolygon(GL2 gl, Colors color, Integer sides, int x, int y){
         gl.glBegin(GL2.GL_POLYGON);
         gl.glColor3f(color.getR(),color.getG(),color.getB());
         for(int i=0;i<sides;++i){
             double angulo= (2*Math.PI*i/sides);
             gl.glVertex2d(x+ 63*Math.cos(angulo),y+63*Math.sin(angulo));
         }
-    }
 
-    private List<Integer> radom(){
+    }
+    private void drawObject(){
+
+    }
+    private List<Integer> randomSides(){
 
         List<Integer> values = Arrays.asList(3,4,5,6,7);
         Collections.shuffle(values);
         return values;
     }
-    private List<Integer> ramdomicObject(){
+    private List<Integer> randomic(){
 
         List<Integer> values = Arrays.asList(0,1,2,3);
         Collections.shuffle(values);
         return values;
+    }
+
+    public void createListAndPosition(){
+        positions = randomSides();
+        correctPosition = randomic().get(0);
+        color = colorsList.get(randomic().get(0));
     }
 
 }
