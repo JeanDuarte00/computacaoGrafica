@@ -18,6 +18,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 import java.util.*;
 import java.lang.reflect.Array;
 import java.util.LinkedList;
@@ -28,8 +29,17 @@ public class GameRenderer implements GLEventListener {
     public static void setTimer(float timer) {
         GameRenderer.timer = timer;
     }
-
+    private static DecimalFormat df = new DecimalFormat("0.00");
     private static float timer=0;
+    private static float frames = 420;
+
+    public static float getFrames() {
+        return frames;
+    }
+
+    public static void setFrames(float frames) {
+        GameRenderer.frames = frames;
+    }
 
     public static float getTimer() {
         return timer;
@@ -39,14 +49,14 @@ public class GameRenderer implements GLEventListener {
     private Colors color;
     private  int correctPosition;
     List<Shape> shapes;
-    private static int score = 0;
+    private static float score = 0;
     private static int life = 3;
-    private static List<Colors> colorsList= Arrays.asList(Colors.VERMELHO,Colors.AMARELO,Colors.AZUL,Colors.VERDE);
+    private static List<Colors> colorsList= Arrays.asList(Colors.VERMELHO,Colors.LARANJA,Colors.AZUL,Colors.VERDE);
     public static int getLife() {
         return life;
     }
 
-    public static int getScore() {
+    public static float getScore() {
         return score;
     }
 
@@ -54,7 +64,7 @@ public class GameRenderer implements GLEventListener {
         return correctPosition;
     }
 
-    public void upScore (int up) {
+    public void upScore (float up) {
         this.score  = this.score + up ;
     }
     public void downlife() {
@@ -94,13 +104,13 @@ public class GameRenderer implements GLEventListener {
         Axis pt = new Axis(85, 700, 0);
         gl.glClear(GL.GL_COLOR_BUFFER_BIT| GL.GL_DEPTH_BUFFER_BIT);
         textRenderer.draw("Score: ", (int) (pt.getX()), (int) (pt.getY()));
-        textRenderer.draw("" + score, (int) (pt.getX() + 10), (int) (pt.getY() - 30));
-        textRenderer.draw("Vidas: ", (int) (pt.getX()+150), (int) (pt.getY()));
+        textRenderer.draw("" + df.format(score), (int) (pt.getX() + 10), (int) (pt.getY() - 30));
+        textRenderer.draw("Vidas: ", (int) (pt.getX()+350), (int) (pt.getY()));
         if(timer>1){
             textRenderer.draw("TIMEOUT!", (int) (pt.getX()+200), (int) (pt.getY()-250));
             textRenderer.draw("clique na tela para finalizar.", (int) (pt.getX()+200), (int) (pt.getY()-300));
         }
-        textRenderer.draw("" + life, (int) (pt.getX() + 160), (int) (pt.getY() - 30));
+        textRenderer.draw("" + life, (int) (pt.getX() + 360), (int) (pt.getY() - 30));
         textRenderer.endRendering();
 
 
@@ -161,7 +171,7 @@ public class GameRenderer implements GLEventListener {
         gl.glLoadIdentity();
         gl.glEnd();
         System.out.println(timer);
-        timer += 1.0f/120.0f;
+        timer += 1.0f/frames;
 
         //posição referencia
         createPolygon(gl,color,positions.get(correctPosition), 620, 615);

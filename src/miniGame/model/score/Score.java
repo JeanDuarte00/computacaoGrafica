@@ -2,12 +2,12 @@ package miniGame.model.score;
 
 public class Score implements Comparable<Score>{
     private String player;
-    private int score;
+    private float score;
 
     public Score() {
 
     }
-    public Score(String gamer, int score) {
+    public Score(String gamer, float score) {
         this.player = gamer;
         this.score = score;
     }

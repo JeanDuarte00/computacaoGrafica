@@ -11,13 +11,14 @@ import miniGame.model.shapes.Shape;
 import miniGame.model.utils.Axis;
 
 import java.awt.*;
+import java.text.DecimalFormat;
 import java.util.LinkedList;
 import java.util.List;
 
 public class RendererScore implements GLEventListener {
     List<Shape> shapes;
     private ScoreData scoreData= new ScoreData();
-
+    private static DecimalFormat df = new DecimalFormat("0.00");
     public RendererScore(){
         if(shapes == null)
             this.shapes = new LinkedList<Shape>();
@@ -51,10 +52,10 @@ public class RendererScore implements GLEventListener {
         // red background
         gl.glBegin(GL2.GL_QUADS);
         gl.glColor3f(1.0f, 0.0f, 0.0f);
-        gl.glVertex2i(200,200-25);
-        gl.glVertex2i(600, 200-25);
-        gl.glVertex2i(600,600);
-        gl.glVertex2i(200, 600);
+        gl.glVertex2i(50,200-25);
+        gl.glVertex2i(750, 200-25);
+        gl.glVertex2i(750,600);
+        gl.glVertex2i(50, 600);
         gl.glEnd();
         gl.glLoadIdentity();
 
@@ -77,19 +78,19 @@ public class RendererScore implements GLEventListener {
 
         pt.setY(600);
         pt.setX(250);
-        textRenderer.draw("1."+ scores.get(0).getGamer()+":"+scores.get(0).getScore(), (int) (pt.getX()), (int) (pt.getY()));
+        textRenderer.draw("1."+ scores.get(0).getGamer()+":"+df.format(scores.get(0).getScore()), (int) (pt.getX()), (int) (pt.getY()));
         pt.setY(500);
         pt.setX(250);
-        textRenderer.draw("2."+ scores.get(1).getGamer()+":"+scores.get(1).getScore(), (int) (pt.getX()), (int) (pt.getY()));
+        textRenderer.draw("2."+ scores.get(1).getGamer()+":"+df.format(scores.get(1).getScore()), (int) (pt.getX()), (int) (pt.getY()));
         pt.setY(400);
         pt.setX(250);
-        textRenderer.draw("3."+ scores.get(2).getGamer()+":"+scores.get(2).getScore(), (int) (pt.getX()), (int) (pt.getY()));
+        textRenderer.draw("3."+ scores.get(2).getGamer()+":"+df.format(scores.get(2).getScore()), (int) (pt.getX()), (int) (pt.getY()));
         pt.setY(300);
         pt.setX(250);
-        textRenderer.draw("4."+ scores.get(3).getGamer()+":"+scores.get(3).getScore(), (int) (pt.getX()), (int) (pt.getY()));
+        textRenderer.draw("4."+ scores.get(3).getGamer()+":"+df.format(scores.get(3).getScore()), (int) (pt.getX()), (int) (pt.getY()));
         pt.setY(200);
         pt.setX(250);
-        textRenderer.draw("5."+ scores.get(4).getGamer()+":"+scores.get(4).getScore(), (int) (pt.getX()), (int) (pt.getY()));
+        textRenderer.draw("5."+ scores.get(4).getGamer()+":"+df.format(scores.get(4).getScore()), (int) (pt.getX()), (int) (pt.getY()));
 
         pt.setY(75);
         pt.setX(350);

@@ -19,17 +19,17 @@ import miniGame.model.utils.WindowEvent;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.text.DecimalFormat;
 
 
 public class Main extends Application {
-
+    private static DecimalFormat df = new DecimalFormat("0.00");
     private int choosen =  (int)(Math.random() * 4) + 1;
     private static int objects[] = new int[4];
     public static String playerName;
     private MenuRenderer menuRender = new MenuRenderer();
     private RendererScore scoreRender = new RendererScore();
     private GameRenderer gameRender = new GameRenderer();
-    private ScoreData scoreData = new ScoreData();
     private static Player player;
 
     public static void main(String[] args) {
@@ -275,7 +275,7 @@ public class Main extends Application {
                     }
                 }
                 if ( selected == gameRender.getResultPosition() || selected != gameRender.getResultPosition()) {
-                    if (GameRenderer.getTimer() > 1) {
+                    if (GameRenderer.getTimer() > 1 || GameRenderer.getLife()==0) {
                         animatorGame.stop();
                         ScoreData score = new ScoreData();
                         JFrame input = new JFrame("Entre seu nome para salvar!");
@@ -307,7 +307,11 @@ public class Main extends Application {
 
                     }
                     else if ( selected == gameRender.getResultPosition()){
-                        gameRender.upScore(1);
+                        GameRenderer.setFrames(GameRenderer.getFrames()-15);
+                        gameRender.upScore(GameRenderer.getScore()*(1-GameRenderer.getTimer()));
+                        if(GameRenderer.getScore()==0) {
+                            gameRender.upScore(1);
+                        }
                         GameRenderer.setTimer(0);
                         new Effects("C://repositorios/cg/computacaoGrafica/src/miniGame/music/gainScore.wav");
                         gameRender.createListAndPosition();
@@ -320,40 +324,6 @@ public class Main extends Application {
                     }
                 }
 
-
-                if(GameRenderer.getLife()==-1 ){
-
-                    JFrame input = new JFrame("Entre seu nome para salvar!");
-                    input.setSize(250, 100);
-                    input.setLocation(new Point(20, 20));
-                    input.getContentPane().setLayout(new FlowLayout());
-                    JTextField extfield = new JTextField("",30);
-
-                    JButton btn=new JButton("Salvar");
-                    btn.setBounds(100,100,140, 40);
-                    btn.addActionListener(new ActionListener() {
-
-                        @Override
-                        public void actionPerformed(ActionEvent actionEvent) {
-                            playerName = extfield.getText();
-                            System.out.println(playerName);
-                            extfield.setText("Enviado com sucesso!");
-                            scoreData.saveScore(new Score(playerName, GameRenderer.getScore()));
-                            System.exit(0);
-                        }
-
-
-                    });
-                    input.getContentPane().add(extfield);
-                    input.getContentPane().add(btn);
-
-                    input.pack();
-                    input.setVisible(true);
-
-
-                    // System.exit(0);
-
-                }
 
             }
 
