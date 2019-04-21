@@ -1,1 +1,0 @@
-[{"player":"cpu01","score":10.0},{"player":"cpu","score":0.0},{"player":"cpu","score":0.0},{"player":"cpu","score":0.0},{"player":"cpu","score":0.0},{"player":"cpu","score":0.0}]

@@ -16,9 +16,11 @@ import miniGame.model.utils.*;
 import miniGame.model.utils.Dimension;
 import miniGame.model.utils.WindowEvent;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.net.URL;
 import java.text.DecimalFormat;
 
 
@@ -32,12 +34,11 @@ public class Main extends Application {
     private GameRenderer gameRender = new GameRenderer();
     private static Player player;
 
+
     public static void main(String[] args) {
 
         player = new Player("C:\\Users\\jean_\\IdeaProjects\\computacaoGrafica\\src\\miniGame\\music\\menu.wav");
         player.play();
-
-
 
         Application.launch(args);
     }
@@ -46,8 +47,8 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
+        System.out.println("Started");
         gameRender.createListAndPosition();
-        System.out.println("Chosen: "+choosen);
         WindowEvent windowEvent = new WindowEvent();
 
 
@@ -70,6 +71,8 @@ public class Main extends Application {
         JFrame scoreFrame = new JFrame("Mini Game - Scores");
 
         final FPSAnimator animatorGame = new FPSAnimator(gameCanvas, 400, true);
+        final FPSAnimator animator = new FPSAnimator(menuCanvas, 400, true);
+
 
         menuCanvas.addMouseMotionListener(new MouseMotionListener() {
 
@@ -394,8 +397,6 @@ public class Main extends Application {
         gameFrame.setLocation(new Point(20, 20));
         scoreFrame.setLocation(new Point(20, 20));
 
-
-        final FPSAnimator animator = new FPSAnimator(menuCanvas, 400, true);
         animator.start();
         animatorGame.start();
 
