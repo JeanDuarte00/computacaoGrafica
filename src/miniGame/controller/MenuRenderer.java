@@ -7,8 +7,6 @@ import com.jogamp.opengl.GLEventListener;
 import com.jogamp.opengl.glu.GLU;
 import com.jogamp.opengl.util.awt.TextRenderer;
 import miniGame.model.utils.Axis;
-import miniGame.model.shapes.Shape;
-
 import java.awt.*;
 import java.util.LinkedList;
 import java.util.List;

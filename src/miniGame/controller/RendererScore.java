@@ -7,9 +7,7 @@ import com.jogamp.opengl.glu.GLU;
 import com.jogamp.opengl.util.awt.TextRenderer;
 import miniGame.model.score.Score;
 import miniGame.model.score.ScoreData;
-import miniGame.model.shapes.Shape;
 import miniGame.model.utils.Axis;
-
 import java.awt.*;
 import java.text.DecimalFormat;
 import java.util.LinkedList;

@@ -6,21 +6,11 @@ import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;
 import com.jogamp.opengl.glu.GLU;
 import com.jogamp.opengl.util.awt.TextRenderer;
-import miniGame.Main;
 import miniGame.model.enums.Colors;
-import miniGame.model.score.Score;
-import miniGame.model.score.ScoreData;
-import miniGame.model.shapes.Shape;
 import miniGame.model.utils.Axis;
-
-
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 import java.util.*;
-import java.lang.reflect.Array;
 import java.util.LinkedList;
 import java.util.List;
 
