@@ -34,12 +34,12 @@ public class Main extends Application {
 
     public static void main(String[] args) {
 
-        player = new Player("C://repositorios/cg/computacaoGrafica/src/miniGame/music/menu.wav");
+        player = new Player("C:\\Users\\jean_\\IdeaProjects\\computacaoGrafica\\src\\miniGame\\music\\menu.wav");
         player.play();
 
 
 
-            Application.launch(args);
+        Application.launch(args);
     }
 
 
@@ -49,10 +49,6 @@ public class Main extends Application {
         gameRender.createListAndPosition();
         System.out.println("Chosen: "+choosen);
         WindowEvent windowEvent = new WindowEvent();
-        objects[0] = 1;
-        objects[1] = 2;
-        objects[2] = 3;
-        objects[3] = 4;
 
 
         // all configuration
@@ -72,6 +68,8 @@ public class Main extends Application {
         JFrame menuFrame = new JFrame("Mini Game - Menu");
         JFrame gameFrame = new JFrame("Mini Game - ClickFall");
         JFrame scoreFrame = new JFrame("Mini Game - Scores");
+
+        final FPSAnimator animatorGame = new FPSAnimator(gameCanvas, 400, true);
 
         menuCanvas.addMouseMotionListener(new MouseMotionListener() {
 
@@ -239,43 +237,44 @@ public class Main extends Application {
 
             }
         });
-        final FPSAnimator animatorGame = new FPSAnimator(gameCanvas, 400, true);
         gameCanvas.addMouseListener(new MouseListener() {
             @Override
 
             public void mouseClicked(MouseEvent e) {
-                int selected = -1;
-                System.out.println("GAME X--Y: "+e.getX()+"--"+e.getY());
 
-                if(e.getX()>86 && e.getX()<235) {
-                    if (e.getY()>429 && e.getY()<561) {
+
+                int selected = -1;
+                System.out.println("GAME X--Y: " + e.getX() + "--" + e.getY());
+
+                if (e.getX() > 86 && e.getX() < 235) {
+                    if (e.getY() > 429 && e.getY() < 561) {
                         System.out.println("OPTION1:");
-                       selected = 0;
+                        selected = 0;
                     }
                 }
 
-                if(e.getX()>245 && e.getX()<491) {
-                    if (e.getY()>429 && e.getY()<561) {
+                if (e.getX() > 245 && e.getX() < 491) {
+                    if (e.getY() > 429 && e.getY() < 561) {
                         System.out.println("OPTION2:");
                         selected = 1;
                     }
                 }
 
-                if(e.getX()>405 && e.getX()<554) {
-                    if (e.getY()>429 && e.getY()<561) {
+                if (e.getX() > 405 && e.getX() < 554) {
+                    if (e.getY() > 429 && e.getY() < 561) {
                         System.out.println("OPTION3:");
                         selected = 2;
                     }
                 }
 
-                if(e.getX()>565 && e.getX()<714) {
-                    if (e.getY()>429 && e.getY()<561) {
+                if (e.getX() > 565 && e.getX() < 714) {
+                    if (e.getY() > 429 && e.getY() < 561) {
                         System.out.println("OPTION4:");
                         selected = 3;
                     }
                 }
-                if ( selected == gameRender.getResultPosition() || selected != gameRender.getResultPosition()) {
-                    if (GameRenderer.getTimer() > 1 || GameRenderer.getLife()==0) {
+                if (selected == gameRender.getResultPosition() || selected != gameRender.getResultPosition()) {
+                    if (GameRenderer.getTimer() > 1 ) {//
                         animatorGame.stop();
                         ScoreData score = new ScoreData();
                         JFrame input = new JFrame("Entre seu nome para salvar!");
@@ -284,46 +283,65 @@ public class Main extends Application {
                         input.getContentPane().setLayout(new FlowLayout());
                         JTextField extfield = new JTextField("", 30);
 
-                        JButton btn = new JButton("Salvar");
-                        btn.setBounds(100, 100, 140, 40);
-                        btn.addActionListener(new ActionListener() {
+                        JButton btnSalvar = new JButton("Salvar e Fechar");
+                        JButton btnRecomecar = new JButton("Salvar e Jogar Novamente");
+
+                        btnSalvar.setBounds(100, 200, 140, 40);
+                        btnRecomecar.setBounds(200, 200, 140, 40);
+
+                        btnSalvar.addActionListener(new ActionListener() {
 
                             @Override
                             public void actionPerformed(ActionEvent actionEvent) {
                                 Main.playerName = extfield.getText();
                                 extfield.setText("Enviado com sucesso!");
                                 score.saveScore(new Score(Main.playerName, GameRenderer.getScore()));
-
                                 System.exit(0);
                             }
 
 
                         });
+                        btnRecomecar.addActionListener((ActionEvent event) -> {
+
+                            Main.playerName = extfield.getText();
+                            score.saveScore(new Score(Main.playerName, GameRenderer.getScore()));
+
+                            menuCanvas.setFocusable(false);
+                            menuFrame.setVisible(false);
+                            gameFrame.setVisible(true);
+                            animatorGame.start();
+                            gameRender.setScore(0);
+                            gameRender.setTimer(0);
+                            gameRender.resetLife();
+                            gameRender.resetFrames();
+                        });
+
                         input.getContentPane().add(extfield);
-                        input.getContentPane().add(btn);
+                        input.getContentPane().add(btnSalvar);
+                        input.getContentPane().add(btnRecomecar);
 
                         input.pack();
                         input.setVisible(true);
 
-                    }
-                    else if ( selected == gameRender.getResultPosition()){
-                        GameRenderer.setFrames(GameRenderer.getFrames()-15);
-                        gameRender.upScore(GameRenderer.getScore()*(1-GameRenderer.getTimer()));
-                        if(GameRenderer.getScore()==0) {
+                    } else if (selected == gameRender.getResultPosition()) {
+                        GameRenderer.setFrames(GameRenderer.getFrames() - 15);
+                        gameRender.upScore(GameRenderer.getScore() * (1 - GameRenderer.getTimer()));
+                        if (GameRenderer.getScore() == 0) {
                             gameRender.upScore(1);
                         }
                         GameRenderer.setTimer(0);
-                        new Effects("C://repositorios/cg/computacaoGrafica/src/miniGame/music/gainScore.wav");
+                        new Effects("C:\\Users\\jean_\\IdeaProjects\\computacaoGrafica\\src\\miniGame\\music\\gainScore.wav");
                         gameRender.createListAndPosition();
 
-                    } else if ( selected != gameRender.getResultPosition() ) {
+                    } else if (selected != gameRender.getResultPosition()) {
                         gameRender.downlife();
                         GameRenderer.setTimer(0);
-                        new Effects("C://repositorios/cg/computacaoGrafica/src/miniGame/music/loseScore.wav");
+                        new Effects("C:\\Users\\jean_\\IdeaProjects\\computacaoGrafica\\src\\miniGame\\music\\loseScore.wav");
                         gameRender.createListAndPosition();
                     }
-                }
 
+
+                }
 
             }
 
@@ -380,6 +398,7 @@ public class Main extends Application {
         final FPSAnimator animator = new FPSAnimator(menuCanvas, 400, true);
         animator.start();
         animatorGame.start();
+
         menuCanvas.addGLEventListener(menuRender);
         scoreCanvas.addGLEventListener(scoreRender);
         gameCanvas.addGLEventListener(gameRender);

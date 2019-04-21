@@ -12,12 +12,14 @@ import java.util.List;
 
 public class ScoreData {
 
+    String fileName = "C:\\Users\\jean_\\IdeaProjects\\computacaoGrafica\\src\\miniGame\\scoreData\\score.txt";
+
     public void saveScore(Score scoreData) {
 
         Gson gson = new Gson();
         String jsonFile = "";
         try {
-        File arquivo = new File("C://repositorios/cg/computacaoGrafica/src/miniGame/scoreData/score.txt");
+        File arquivo = new File(this.fileName);
         FileReader fr = new FileReader(arquivo);
         BufferedReader br = new BufferedReader(fr);
         while( br.ready() ){
@@ -28,7 +30,7 @@ public class ScoreData {
         Collections.sort(listScore);
         arquivo.delete();
 
-        FileWriter fw = new FileWriter( "C://repositorios/cg/computacaoGrafica/src/miniGame/scoreData/score.txt" );
+        FileWriter fw = new FileWriter( this.fileName);
         fw.write(gson.toJson(listScore));
         br.close();
         fr.close();
@@ -44,7 +46,7 @@ public class ScoreData {
         String jsonFile = "";
         FileReader fr = null;
         try {
-            File arquivo = new File("C://repositorios/cg/computacaoGrafica/src/miniGame/scoreData/score.txt");
+            File arquivo = new File(this.fileName);
             fr = new FileReader(arquivo);
 
             BufferedReader br = new BufferedReader(fr);
@@ -65,7 +67,7 @@ public class ScoreData {
         Gson gson = new Gson();
         String jsonFile = "";
         try {
-        File arquivo = new File("C://repositorios/cg/computacaoGrafica/src/miniGame/scoreData/score.txt");
+        File arquivo = new File(this.fileName);
         FileReader fr = new FileReader(arquivo);
         BufferedReader br = new BufferedReader(fr);
             while( br.ready() ){

@@ -26,12 +26,31 @@ import java.util.List;
 
 public class GameRenderer implements GLEventListener {
 
-    public static void setTimer(float timer) {
-        GameRenderer.timer = timer;
-    }
+
+    private  List<Integer> positions ;
+    private Colors color;
+    private  int correctPosition;
+    List<Shape> shapes;
+    private static float score = 0;
+    private static int life = 3;
+    private static List<Colors> colorsList= Arrays.asList(Colors.VERMELHO,Colors.LARANJA,Colors.AZUL,Colors.VERDE);
     private static DecimalFormat df = new DecimalFormat("0.00");
     private static float timer=0;
     private static float frames = 420;
+
+
+
+    public void setTimer(float timer) {
+        this.timer = timer;
+    }
+
+    public static void setTimer(int time) {
+        timer  = time;
+    }
+
+    public void resetFrames() {
+        frames = 420;
+    }
 
     public static float getFrames() {
         return frames;
@@ -45,16 +64,22 @@ public class GameRenderer implements GLEventListener {
         return timer;
     }
 
-    private  List<Integer> positions ;
-    private Colors color;
-    private  int correctPosition;
-    List<Shape> shapes;
-    private static float score = 0;
-    private static int life = 3;
-    private static List<Colors> colorsList= Arrays.asList(Colors.VERMELHO,Colors.LARANJA,Colors.AZUL,Colors.VERDE);
+    public void setLife (int life){
+        this.life = life;
+    }
+
     public static int getLife() {
         return life;
     }
+
+    public void resetLife() {
+        life = 3;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
 
     public static float getScore() {
         return score;
@@ -106,9 +131,12 @@ public class GameRenderer implements GLEventListener {
         textRenderer.draw("Score: ", (int) (pt.getX()), (int) (pt.getY()));
         textRenderer.draw("" + df.format(score), (int) (pt.getX() + 10), (int) (pt.getY() - 30));
         textRenderer.draw("Vidas: ", (int) (pt.getX()+350), (int) (pt.getY()));
-        if(timer>1){
+        if ( timer > 1 ) {
             textRenderer.draw("TIMEOUT!", (int) (pt.getX()+200), (int) (pt.getY()-250));
             textRenderer.draw("clique na tela para finalizar.", (int) (pt.getX()+200), (int) (pt.getY()-300));
+        }
+        if (life > 1) {
+
         }
         textRenderer.draw("" + life, (int) (pt.getX() + 360), (int) (pt.getY() - 30));
         textRenderer.endRendering();
