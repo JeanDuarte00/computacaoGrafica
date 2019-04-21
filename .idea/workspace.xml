@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="computacaoGrafica:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="7403de74-a01e-41a4-8b42-646d996d629f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/computacaoGrafica_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/computacaoGrafica/miniGame/scoreData/score.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/computacaoGrafica/miniGame/scoreData/score.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/miniGame/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/miniGame/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/miniGame/controller/GameRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/miniGame/controller/GameRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/miniGame/model/score/ScoreData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/miniGame/model/score/ScoreData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/miniGame/scoreData/score.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/miniGame/scoreData/score.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -28,8 +26,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/miniGame/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="244" column="12" selection-start-line="244" selection-start-column="12" selection-end-line="341" />
+            <state relative-caret-position="112">
+              <caret line="276" column="77" selection-start-line="276" selection-start-column="77" selection-end-line="276" selection-end-column="77" />
               <folding>
                 <element signature="class#2555:4779" />
                 <element signature="class#4822:6479" />
@@ -38,7 +36,6 @@
                 <element signature="e#8132#8323#1" />
                 <element signature="e#8374#8565#1" />
                 <element signature="e#8616#8807#1" />
-                <element signature="e#9129#11585#1" />
                 <element signature="method#mousePressed#0;class#7651:13143" />
                 <element signature="method#mouseReleased#0;class#7651:13143" />
                 <element signature="method#mouseEntered#0;class#7651:13143" />
@@ -61,7 +58,7 @@
         <entry file="file://$PROJECT_DIR$/src/miniGame/controller/GameRenderer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
-              <caret line="135" column="110" lean-forward="true" selection-start-line="134" selection-start-column="11" selection-end-line="135" selection-end-column="110" />
+              <caret line="135" column="110" selection-start-line="134" selection-start-column="11" selection-end-line="135" selection-end-column="110" />
               <folding>
                 <element signature="e#1035#1036#0" expanded="true" />
                 <element signature="e#1065#1066#0" expanded="true" />
@@ -91,7 +88,7 @@
         <entry file="file://$PROJECT_DIR$/src/miniGame/controller/RendererScore.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
-              <caret line="19" column="18" lean-forward="true" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+              <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -148,27 +145,20 @@
             <path>
               <item name="computacaoGrafica" type="b2602c69:ProjectViewProjectNode" />
               <item name="computacaoGrafica" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="computacaoGrafica" type="b2602c69:ProjectViewProjectNode" />
               <item name="computacaoGrafica" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="miniGame" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="computacaoGrafica" type="b2602c69:ProjectViewProjectNode" />
               <item name="computacaoGrafica" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="miniGame" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="computacaoGrafica" type="b2602c69:ProjectViewProjectNode" />
-              <item name="computacaoGrafica" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="miniGame" type="462c0819:PsiDirectoryNode" />
-              <item name="scoreData" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="computacaoGrafica_jar" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -177,7 +167,11 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555827937443" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555828677976" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -275,7 +269,7 @@
     <entry file="file://$PROJECT_DIR$/src/miniGame/controller/RendererScore.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="19" column="18" lean-forward="true" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+          <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -299,7 +293,7 @@
     <entry file="file://$PROJECT_DIR$/src/miniGame/controller/GameRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
-          <caret line="135" column="110" lean-forward="true" selection-start-line="134" selection-start-column="11" selection-end-line="135" selection-end-column="110" />
+          <caret line="135" column="110" selection-start-line="134" selection-start-column="11" selection-end-line="135" selection-end-column="110" />
           <folding>
             <element signature="e#1035#1036#0" expanded="true" />
             <element signature="e#1065#1066#0" expanded="true" />
@@ -326,8 +320,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/miniGame/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="244" column="12" selection-start-line="244" selection-start-column="12" selection-end-line="341" />
+        <state relative-caret-position="112">
+          <caret line="276" column="77" selection-start-line="276" selection-start-column="77" selection-end-line="276" selection-end-column="77" />
           <folding>
             <element signature="class#2555:4779" />
             <element signature="class#4822:6479" />
@@ -336,7 +330,6 @@
             <element signature="e#8132#8323#1" />
             <element signature="e#8374#8565#1" />
             <element signature="e#8616#8807#1" />
-            <element signature="e#9129#11585#1" />
             <element signature="method#mousePressed#0;class#7651:13143" />
             <element signature="method#mouseReleased#0;class#7651:13143" />
             <element signature="method#mouseEntered#0;class#7651:13143" />
@@ -345,5 +338,84 @@
         </state>
       </provider>
     </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>computacaoGrafica:jar</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>gluegen-rt-natives-windows-amd64</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>computacaoGrafica</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>lib</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

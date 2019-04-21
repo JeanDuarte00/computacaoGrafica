@@ -274,7 +274,7 @@ public class Main extends Application {
                     }
                 }
                 if (selected == gameRender.getResultPosition() || selected != gameRender.getResultPosition()) {
-                    if (GameRenderer.getTimer() > 1 ) {//
+                    if (GameRenderer.getTimer() > 1 || GameRenderer.getLife() == 0 ) {
                         animatorGame.stop();
                         ScoreData score = new ScoreData();
                         JFrame input = new JFrame("Entre seu nome para salvar!");
